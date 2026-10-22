@@ -1,0 +1,38 @@
+A color of your choice for each chat. 🎨
+Identify your open chat with color and a large title.
+
+Colors for ChatGPT is a browser extension that lets you choose a colored banner and frame for each chat.
+When using several chats at once, it helps you notice if you are in the wrong tab or window.
+
+■ Getting started
+① After installation, reload any open ChatGPT pages.
+② Click the extension icon.
+A colored banner and title will then appear for that chat.
+Use the banner’s color and display menu to adjust colors and sizes.
+
+■ Main features
+• Choose a banner and frame color for each chat.
+• Display the chat name prominently at the top of the page.
+• Adjust banner height, frame thickness, font size and text color.
+• Click the chat name in the banner to edit the actual name in ChatGPT.
+• Hide the banner with ×, or use the popup to turn the extension on or off globally or for each chat.
+• Save per-chat settings and share them across tabs in the same browser profile.
+• Interface available in seven languages.
+
+Note: Chat name editing is available only when ChatGPT’s display language is Japanese or English. The chat must be visible in the sidebar; if its folder is collapsed, it cannot be renamed.
+
+■ Supported environment
+Supports the official ChatGPT website (chatgpt.com).
+Desktop apps, mobile apps and other AI services are not supported.
+New chats can be used once a conversation has started and a chat ID has been assigned.
+Changes to ChatGPT’s interface may make some features unavailable.
+
+■ Privacy
+The extension does not collect or save conversation messages or the contents of the message input field, and sends no data to an external server of its own.
+Settings are stored in your browser, and chat IDs are used to identify chats.
+It reads and interacts with page elements to adjust the display and rename chats.
+
+Developed by marusin tools
+
+If you enjoy using the extension, a rating or review on the Chrome Web Store would be appreciated.
+You can also leave a star rating without a comment.

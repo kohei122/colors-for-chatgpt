@@ -1,0 +1,38 @@
+Un color a tu gusto para cada chat. 🎨
+Identifica el chat abierto con un color y un título grande.
+
+Colors for ChatGPT es una extensión de navegador que permite elegir el color de la franja y del marco de cada chat.
+Al usar varios chats a la vez, ayuda a notar si te has equivocado de pestaña o ventana.
+
+■ Cómo empezar
+① Tras instalar la extensión, recarga las páginas de ChatGPT que tengas abiertas.
+② Haz clic en el icono de la extensión.
+Con estos dos pasos, aparecerán una franja de color y el título en ese chat.
+Puedes ajustar los colores y tamaños desde el menú de color y visualización de la franja.
+
+■ Funciones principales
+• Elige el color de la franja y del marco de cada chat.
+• Muestra el nombre del chat en grande en la parte superior de la página.
+• Ajusta la altura de la franja, el grosor del marco, el tamaño y el color del texto.
+• Haz clic en el nombre de la franja para editar el nombre real del chat en ChatGPT.
+• Oculta la franja con × o usa la ventana emergente para activar o desactivar la extensión globalmente o por chat.
+• Guarda la configuración de cada chat y compártela entre pestañas del mismo perfil del navegador.
+• Interfaz de la extensión disponible en siete idiomas.
+
+Nota: Solo se puede editar el nombre cuando el idioma de visualización de ChatGPT es japonés o inglés. El chat debe estar visible en la barra lateral; si su carpeta está contraída, no se puede editar.
+
+■ Entorno compatible
+Compatible con la web oficial de ChatGPT (chatgpt.com).
+No es compatible con aplicaciones de escritorio, aplicaciones móviles ni otros servicios de IA.
+Los chats nuevos se pueden usar después de iniciar la conversación y recibir un ID de chat.
+Los cambios en la interfaz de ChatGPT pueden hacer que algunas funciones dejen de estar disponibles.
+
+■ Privacidad
+La extensión no recopila ni guarda los mensajes de las conversaciones ni el contenido del campo de entrada de mensajes, y no envía datos a servidores externos propios.
+La configuración se guarda en el navegador y se utilizan los ID de chat para identificar los chats.
+La extensión lee e interactúa con elementos de la página para ajustar la visualización y cambiar nombres.
+
+Desarrollado por marusin tools
+
+Si te resulta útil, agradeceríamos una valoración o reseña en Chrome Web Store.
+También puedes dejar solo una puntuación con estrellas, sin comentario.

@@ -1,0 +1,8 @@
+{
+  "name": "chat-thread-colors",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {"test": "node --test tests/core.test.js", "test:browser": "node --test tests/browser.test.js"},
+  "devDependencies": {"playwright": "1.62.1"}
+}

@@ -1,0 +1,40 @@
+# Dependencies and local configuration
+node_modules/
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.pfx
+*.p12
+credentials*.json
+secrets*.json
+.vscode/
+.idea/
+.codex/
+.agents/
+# Local artifacts, logs, raw diagnostics and release bundles
+/releases/
+/design/
+/audit-*.json
+/test-*.txt
+/test-*.json
+*.zip
+*.log
+*.tmp
+*.bak
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+coverage/
+test-results/
+playwright-report/
+/tests/*.png
+/tests/*.json
+/tests/release-*/
+/diagnostics/*.json
+/diagnostics/*.txt
+# Unused high-resolution source icon
+/icons/icon512.png

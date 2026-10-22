@@ -1,0 +1,362 @@
+{
+  "m000": {
+    "message": "Current chat"
+  },
+  "m001": {
+    "message": "Hide this chat’s banner"
+  },
+  "m002": {
+    "message": "Edit chat name"
+  },
+  "m003": {
+    "message": "Chat name to edit"
+  },
+  "m004": {
+    "message": "Cancel"
+  },
+  "m005": {
+    "message": "Set this chat’s colors and appearance"
+  },
+  "m006": {
+    "message": "Appearance"
+  },
+  "m007": {
+    "message": "Composing"
+  },
+  "m008": {
+    "message": "Dismiss rename notification"
+  },
+  "m009": {
+    "message": "Entered name"
+  },
+  "m010": {
+    "message": "Edit using this name"
+  },
+  "m011": {
+    "message": "Chat colors and appearance"
+  },
+  "m012": {
+    "message": "Colors for this chat"
+  },
+  "m013": {
+    "message": "Close settings"
+  },
+  "m015": {
+    "message": "Choose a color"
+  },
+  "m016": {
+    "message": "Custom color"
+  },
+  "m017": {
+    "message": "Choose banner color"
+  },
+  "m018": {
+    "message": "Text color"
+  },
+  "m019": {
+    "message": "Text color mode"
+  },
+  "m020": {
+    "message": "Readable"
+  },
+  "m021": {
+    "message": "Vivid color"
+  },
+  "m022": {
+    "message": "Choose color"
+  },
+  "m023": {
+    "message": "Choose text color"
+  },
+  "m024": {
+    "message": "Banner height"
+  },
+  "m025": {
+    "message": "Text size"
+  },
+  "m026": {
+    "message": "Border width"
+  },
+  "m027": {
+    "message": "Reset appearance"
+  },
+  "m028": {
+    "message": "How to use"
+  },
+  "m029": {
+    "message": "Colors and appearance are saved per chat in this browser."
+  },
+  "m030": {
+    "message": "Click the chat name in the banner to edit it."
+  },
+  "m031": {
+    "message": "Press Enter or click the page outside the editor to confirm."
+  },
+  "m033": {
+    "message": "Cancel discards the edit."
+  },
+  "m034": {
+    "message": "View Chrome extensions"
+  },
+  "m035": {
+    "message": "Checking chat name…"
+  },
+  "m036": {
+    "message": "Editing stopped because the chat changed. If saving had started, check the original chat."
+  },
+  "m037": {
+    "message": "Cannot load settings. Reload the extension, then reload the page."
+  },
+  "m038": {
+    "message": "The chat changed. Check the current chat."
+  },
+  "m039": {
+    "message": "Could not save settings."
+  },
+  "m040": {
+    "message": "Saved"
+  },
+  "m041": {
+    "message": "Could not save. Only the display changed. Set it again."
+  },
+  "m042": {
+    "message": "Not saved due to a loading error. Reload the page."
+  },
+  "m043": {
+    "message": "Will save after loading…"
+  },
+  "m044": {
+    "message": "Saving…"
+  },
+  "m045": {
+    "message": "The updated chat name was confirmed. Close the rename dialog if it remains open."
+  },
+  "m046": {
+    "message": "Chat renamed"
+  },
+  "m047": {
+    "message": "Cannot rename from the banner. Use ChatGPT’s menu."
+  },
+  "m048": {
+    "message": "Cannot uniquely associate the current chat with its button. Check their nearest shared container."
+  },
+  "m049": {
+    "message": "Cannot verify the button’s visible area."
+  },
+  "m050": {
+    "message": "Stopped because another element covers the button."
+  },
+  "m051": {
+    "message": "Cannot associate the open menu with the target button."
+  },
+  "m052": {
+    "message": "Updating…"
+  },
+  "m053": {
+    "message": "Cannot verify the current chat."
+  },
+  "m054": {
+    "message": "Stopped because another dialog is open."
+  },
+  "m055": {
+    "message": "Cannot verify the current name."
+  },
+  "m056": {
+    "message": "Enter a name."
+  },
+  "m057": {
+    "message": "Starting checks"
+  },
+  "m058": {
+    "message": "Timed out."
+  },
+  "m059": {
+    "message": "Stopped because the chat changed."
+  },
+  "m060": {
+    "message": "Stopped because display is OFF."
+  },
+  "m061": {
+    "message": "The rename dialog shows an error. Check its message."
+  },
+  "m062": {
+    "message": "Stopped because the name on the page changed."
+  },
+  "m063": {
+    "message": "Checking target row"
+  },
+  "m064": {
+    "message": "Checking menu association"
+  },
+  "m065": {
+    "message": "Stopped because the target row was replaced."
+  },
+  "m066": {
+    "message": "The target row changed."
+  },
+  "m067": {
+    "message": "Checking Rename item"
+  },
+  "m068": {
+    "message": "The target menu changed."
+  },
+  "m069": {
+    "message": "Rename"
+  },
+  "m070": {
+    "message": "Cannot identify a unique Rename item."
+  },
+  "m071": {
+    "message": "Stopped because the rename backdrop changed."
+  },
+  "m072": {
+    "message": "Stopped because the dialog and backdrop association changed."
+  },
+  "m073": {
+    "message": "Rename chat"
+  },
+  "m074": {
+    "message": "Save"
+  },
+  "m075": {
+    "message": "Checking rename dialog"
+  },
+  "m076": {
+    "message": "Stopped because another dialog opened."
+  },
+  "m077": {
+    "message": "Stopped because the dialog existed before this operation."
+  },
+  "m078": {
+    "message": "The rename dialog does not match."
+  },
+  "m079": {
+    "message": "Cannot uniquely identify the editor and save action."
+  },
+  "m080": {
+    "message": "The native field’s value or state does not match."
+  },
+  "m081": {
+    "message": "Applying input"
+  },
+  "m082": {
+    "message": "Stopped because the editor changed."
+  },
+  "m083": {
+    "message": "Stopped because the editor and save action association changed."
+  },
+  "m084": {
+    "message": "Checking save and name update"
+  },
+  "m085": {
+    "message": "Checking dialog closure"
+  },
+  "m086": {
+    "message": "The updated name was confirmed, but dialog closure could not be verified."
+  },
+  "m087": {
+    "message": "Save result unknown. No automatic retry. Check the original chat name."
+  },
+  "m088": {
+    "message": "Could not hide the banner. Try again."
+  },
+  "m089": {
+    "message": "Cannot load settings. Reload the page."
+  },
+  "m090": {
+    "message": "The chat changed."
+  },
+  "m091": {
+    "message": "Chat changed; it was not enabled automatically."
+  },
+  "m092": {
+    "message": "Not available on a new chat screen."
+  },
+  "m093": {
+    "message": "Loading settings…"
+  },
+  "m094": {
+    "message": "Hidden: extension is OFF"
+  },
+  "m095": {
+    "message": "Open a saved ChatGPT chat."
+  },
+  "m096": {
+    "message": "Could not load settings. Reload the extension."
+  },
+  "m097": {
+    "message": "Could not save. Try again."
+  },
+  "m098": {
+    "message": "Cannot verify saved state. Reopen the popup."
+  },
+  "m099": {
+    "message": "Enable extension"
+  },
+  "m100": {
+    "message": "Show banner in this chat"
+  },
+  "m101": {
+    "message": "Checking current chat…"
+  },
+  "m102": {
+    "message": "Language"
+  },
+  "m103": {
+    "message": "Auto"
+  },
+  "m104": {
+    "message": "Tell ChatGPT chats apart with custom colors and large titles. Spot mix-ups between tabs and windows when using multiple chats."
+  },
+  "m105": {
+    "message": "Multiple buttons in the target row; cannot identify one."
+  },
+  "m106": {
+    "message": "Target button is hidden or disabled (size, position or disabled state)."
+  },
+  "m107": {
+    "message": "Target button is unavailable due to ancestor visibility or interaction restrictions."
+  },
+  "m108": {
+    "message": "Target button does not accept clicks (pointer-events:none)."
+  },
+  "m109": {
+    "message": "Target button is unavailable (unverified opacity)."
+  },
+  "m110": {
+    "message": "Choose a color for each chat"
+  },
+  "m111": {
+    "message": "Choose a swatch or use “Custom color” to set this chat’s color."
+  },
+  "m112": {
+    "message": "Adjust the banner, border and text"
+  },
+  "m113": {
+    "message": "Adjust the banner height, border width, text size and text color."
+  },
+  "m114": {
+    "message": "Available only when ChatGPT’s display language is Japanese or English."
+  },
+  "m115": {
+    "message": "If the chat is in a folder, you cannot rename it while the folder is collapsed."
+  },
+  "m116": {
+    "message": "Hide colors for this chat"
+  },
+  "m117": {
+    "message": "Click × on the left of the banner to hide this chat’s banner and border."
+  },
+  "m118": {
+    "message": "Your color and size settings are kept. If the extension is enabled, open its popup to show them again."
+  },
+  "appName": {
+    "message": "Colors for ChatGPT (by marusin)"
+  },
+  "appDescription": {
+    "message": "Tell ChatGPT chats apart with custom colors and large titles. Spot mix-ups between tabs and windows when using multiple chats."
+  },
+  "localeCode": {
+    "message": "en"
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "m000": {
+    "message": "Chat actual"
+  },
+  "m001": {
+    "message": "Ocultar la banda de este chat"
+  },
+  "m002": {
+    "message": "Editar nombre del chat"
+  },
+  "m003": {
+    "message": "Nombre del chat a editar"
+  },
+  "m004": {
+    "message": "Cancelar"
+  },
+  "m005": {
+    "message": "Configurar colores y apariencia del chat"
+  },
+  "m006": {
+    "message": "Apariencia"
+  },
+  "m007": {
+    "message": "Componiendo"
+  },
+  "m008": {
+    "message": "Cerrar aviso de cambio de nombre"
+  },
+  "m009": {
+    "message": "Nombre introducido"
+  },
+  "m010": {
+    "message": "Editar con este nombre"
+  },
+  "m011": {
+    "message": "Colores y apariencia del chat"
+  },
+  "m012": {
+    "message": "Colores de este chat"
+  },
+  "m013": {
+    "message": "Cerrar ajustes"
+  },
+  "m015": {
+    "message": "Elegir un color"
+  },
+  "m016": {
+    "message": "Color personalizado"
+  },
+  "m017": {
+    "message": "Elegir color de la banda"
+  },
+  "m018": {
+    "message": "Color del texto"
+  },
+  "m019": {
+    "message": "Modo de color del texto"
+  },
+  "m020": {
+    "message": "Legible"
+  },
+  "m021": {
+    "message": "Color llamativo"
+  },
+  "m022": {
+    "message": "Elegir color"
+  },
+  "m023": {
+    "message": "Elegir color del texto"
+  },
+  "m024": {
+    "message": "Altura de la banda"
+  },
+  "m025": {
+    "message": "Tamaño del texto"
+  },
+  "m026": {
+    "message": "Grosor del borde"
+  },
+  "m027": {
+    "message": "Restablecer apariencia"
+  },
+  "m028": {
+    "message": "Cómo usar"
+  },
+  "m029": {
+    "message": "Los colores y la apariencia se guardan por chat en este navegador."
+  },
+  "m030": {
+    "message": "Haz clic en el nombre del chat en la banda para editarlo."
+  },
+  "m031": {
+    "message": "Pulsa Enter o haz clic en la página fuera del campo para confirmar."
+  },
+  "m033": {
+    "message": "Cancelar descarta la edición."
+  },
+  "m034": {
+    "message": "Ver extensiones de Chrome"
+  },
+  "m035": {
+    "message": "Comprobando el nombre…"
+  },
+  "m036": {
+    "message": "La edición se detuvo al cambiar de chat. Si ya se guardaba, comprueba el chat original."
+  },
+  "m037": {
+    "message": "No se pueden cargar los ajustes. Recarga la extensión y luego la página."
+  },
+  "m038": {
+    "message": "El chat cambió. Comprueba el chat actual."
+  },
+  "m039": {
+    "message": "No se pudieron guardar los ajustes."
+  },
+  "m040": {
+    "message": "Guardado"
+  },
+  "m041": {
+    "message": "No se guardó. Solo cambió la visualización. Configúralo de nuevo."
+  },
+  "m042": {
+    "message": "No se guardó por un error de carga. Recarga la página."
+  },
+  "m043": {
+    "message": "Se guardará al terminar de cargar…"
+  },
+  "m044": {
+    "message": "Guardando…"
+  },
+  "m045": {
+    "message": "Se confirmó el nuevo nombre. Cierra el diálogo si sigue abierto."
+  },
+  "m046": {
+    "message": "Nombre del chat cambiado"
+  },
+  "m047": {
+    "message": "No se puede renombrar desde la banda. Usa el menú de ChatGPT."
+  },
+  "m048": {
+    "message": "No se puede vincular el chat a un único botón. Comprueba su contenedor común más cercano."
+  },
+  "m049": {
+    "message": "No se puede verificar el área visible del botón."
+  },
+  "m050": {
+    "message": "Se detuvo porque otro elemento cubre el botón."
+  },
+  "m051": {
+    "message": "No se puede vincular el menú abierto al botón."
+  },
+  "m052": {
+    "message": "Actualizando…"
+  },
+  "m053": {
+    "message": "No se puede verificar el chat actual."
+  },
+  "m054": {
+    "message": "Se detuvo porque hay otro diálogo abierto."
+  },
+  "m055": {
+    "message": "No se puede verificar el nombre actual."
+  },
+  "m056": {
+    "message": "Introduce un nombre."
+  },
+  "m057": {
+    "message": "Comprobaciones iniciales"
+  },
+  "m058": {
+    "message": "Se agotó el tiempo."
+  },
+  "m059": {
+    "message": "Se detuvo porque cambió el chat."
+  },
+  "m060": {
+    "message": "Se detuvo porque la visualización está desactivada."
+  },
+  "m061": {
+    "message": "El diálogo de nombre muestra un error. Revisa su mensaje."
+  },
+  "m062": {
+    "message": "Se detuvo porque cambió el nombre en la página."
+  },
+  "m063": {
+    "message": "Comprobación de fila"
+  },
+  "m064": {
+    "message": "Comprobación del menú"
+  },
+  "m065": {
+    "message": "Se detuvo porque se sustituyó la fila."
+  },
+  "m066": {
+    "message": "La fila cambió."
+  },
+  "m067": {
+    "message": "Comprobación de Renombrar"
+  },
+  "m068": {
+    "message": "El menú cambió."
+  },
+  "m069": {
+    "message": "Renombrar"
+  },
+  "m070": {
+    "message": "No se identifica una única opción Renombrar."
+  },
+  "m071": {
+    "message": "Se detuvo porque cambió el fondo del diálogo."
+  },
+  "m072": {
+    "message": "Se detuvo porque cambió la relación entre diálogo y fondo."
+  },
+  "m073": {
+    "message": "Renombrar chat"
+  },
+  "m074": {
+    "message": "Guardar"
+  },
+  "m075": {
+    "message": "Comprobación del diálogo"
+  },
+  "m076": {
+    "message": "Se detuvo porque se abrió otro diálogo."
+  },
+  "m077": {
+    "message": "Se detuvo porque el diálogo ya existía."
+  },
+  "m078": {
+    "message": "El diálogo de nombre no coincide."
+  },
+  "m079": {
+    "message": "No se identifican de forma única el campo y la acción de guardar."
+  },
+  "m080": {
+    "message": "El valor o estado del campo original no coincide."
+  },
+  "m081": {
+    "message": "Aplicación del texto"
+  },
+  "m082": {
+    "message": "Se detuvo porque cambió el editor."
+  },
+  "m083": {
+    "message": "Se detuvo porque cambió la relación entre el campo y el guardado."
+  },
+  "m084": {
+    "message": "Comprobación de guardado y nombre"
+  },
+  "m085": {
+    "message": "Comprobación del cierre"
+  },
+  "m086": {
+    "message": "Se confirmó el nombre, pero no el cierre del diálogo."
+  },
+  "m087": {
+    "message": "Resultado desconocido. No se reintentará automáticamente. Revisa el nombre del chat original."
+  },
+  "m088": {
+    "message": "No se pudo ocultar la banda. Inténtalo de nuevo."
+  },
+  "m089": {
+    "message": "No se pueden cargar los ajustes. Recarga la página."
+  },
+  "m090": {
+    "message": "El chat cambió."
+  },
+  "m091": {
+    "message": "El chat cambió; no se activó automáticamente."
+  },
+  "m092": {
+    "message": "No disponible en un chat nuevo."
+  },
+  "m093": {
+    "message": "Cargando ajustes…"
+  },
+  "m094": {
+    "message": "Oculto: extensión desactivada"
+  },
+  "m095": {
+    "message": "Abre un chat guardado de ChatGPT."
+  },
+  "m096": {
+    "message": "No se cargaron los ajustes. Recarga la extensión."
+  },
+  "m097": {
+    "message": "No se pudo guardar. Inténtalo de nuevo."
+  },
+  "m098": {
+    "message": "No se puede verificar el estado guardado. Vuelve a abrir el panel."
+  },
+  "m099": {
+    "message": "Activar extensión"
+  },
+  "m100": {
+    "message": "Mostrar banda en este chat"
+  },
+  "m101": {
+    "message": "Comprobando el chat actual…"
+  },
+  "m102": {
+    "message": "Idioma"
+  },
+  "m103": {
+    "message": "Automático"
+  },
+  "m104": {
+    "message": "Distingue tus chats de ChatGPT con colores y títulos grandes. Detecta confusiones entre pestañas y ventanas al usar varios chats."
+  },
+  "m105": {
+    "message": "Hay varios botones en la fila; no se puede identificar uno."
+  },
+  "m106": {
+    "message": "Botón oculto o desactivado (tamaño, posición o estado)."
+  },
+  "m107": {
+    "message": "Botón no disponible por restricciones de un elemento antecesor."
+  },
+  "m108": {
+    "message": "El botón no acepta clics (pointer-events:none)."
+  },
+  "m109": {
+    "message": "Botón no disponible (opacity no verificada)."
+  },
+  "m110": {
+    "message": "Elige un color para cada chat"
+  },
+  "m111": {
+    "message": "Elige una muestra o usa «Color personalizado» para este chat."
+  },
+  "m112": {
+    "message": "Ajusta la banda, el borde y el texto"
+  },
+  "m113": {
+    "message": "Ajusta la altura de la banda, el grosor del borde, el tamaño y el color del texto."
+  },
+  "m114": {
+    "message": "Disponible solo si el idioma de ChatGPT es japonés o inglés."
+  },
+  "m115": {
+    "message": "Si el chat está dentro de una carpeta, no puedes cambiarle el nombre mientras la carpeta esté contraída."
+  },
+  "m116": {
+    "message": "Oculta los colores de este chat"
+  },
+  "m117": {
+    "message": "Haz clic en × a la izquierda de la banda para ocultar la banda y el borde de este chat."
+  },
+  "m118": {
+    "message": "Los ajustes de color y tamaño se conservan. Si la extensión está activada, abre su ventana para volver a mostrarlos."
+  },
+  "appName": {
+    "message": "Colors for ChatGPT (by marusin)"
+  },
+  "appDescription": {
+    "message": "Distingue tus chats de ChatGPT con colores y títulos grandes. Detecta confusiones entre pestañas y ventanas al usar varios chats."
+  },
+  "localeCode": {
+    "message": "es"
+  }
+}

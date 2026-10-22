@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Colors for ChatGPT (by marusin)",
+  "version": "1.0.0",
+  "description": "__MSG_appDescription__",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "Colors for ChatGPT (by marusin)",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*"
+      ],
+      "js": [
+        "i18n-data.js",
+        "i18n.js",
+        "core.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "default_locale": "en",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

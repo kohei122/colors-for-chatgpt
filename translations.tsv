@@ -1,0 +1,119 @@
+現在のチャット|Current chat|현재 채팅|当前聊天|目前聊天|Chat actual|Conversa atual
+このチャットの帯を非表示|Hide this chat’s banner|이 채팅의 띠 숨기기|隐藏此聊天的色带|隱藏此聊天的色帶|Ocultar la banda de este chat|Ocultar a faixa desta conversa
+チャット名を編集|Edit chat name|채팅 이름 편집|编辑聊天名称|編輯聊天名稱|Editar nombre del chat|Editar nome da conversa
+編集するチャット名|Chat name to edit|편집할 채팅 이름|要编辑的聊天名称|要編輯的聊天名稱|Nombre del chat a editar|Nome da conversa a editar
+キャンセル|Cancel|취소|取消|取消|Cancelar|Cancelar
+このチャットの色と表示を設定|Set this chat’s colors and appearance|이 채팅의 색상과 모양 설정|设置此聊天的颜色和外观|設定此聊天的顏色與外觀|Configurar colores y apariencia del chat|Configurar cores e aparência da conversa
+色・表示|Appearance|색상·모양|颜色与外观|顏色與外觀|Apariencia|Aparência
+変換中|Composing|변환 중|正在组字|正在組字|Componiendo|Compondo
+名前変更の通知を閉じる|Dismiss rename notification|이름 변경 알림 닫기|关闭重命名通知|關閉重新命名通知|Cerrar aviso de cambio de nombre|Fechar aviso de alteração de nome
+入力した名前|Entered name|입력한 이름|已输入的名称|已輸入的名稱|Nombre introducido|Nome digitado
+この名前で編集し直す|Edit using this name|이 이름으로 다시 편집|使用此名称重新编辑|使用此名稱重新編輯|Editar con este nombre|Editar com este nome
+チャットの色と表示|Chat colors and appearance|채팅 색상과 모양|聊天颜色和外观|聊天顏色與外觀|Colores y apariencia del chat|Cores e aparência da conversa
+このチャットの色設定|Colors for this chat|이 채팅의 색상 설정|此聊天的颜色设置|此聊天的色彩設定|Colores de este chat|Cores desta conversa
+設定を閉じる|Close settings|설정 닫기|关闭设置|關閉設定|Cerrar ajustes|Fechar configurações
+
+色を選ぶ|Choose a color|색상 선택|选择颜色|選擇顏色|Elegir un color|Escolher uma cor
+自由な色|Custom color|사용자 지정 색상|自定义颜色|自訂顏色|Color personalizado|Cor personalizada
+帯の色を選択|Choose banner color|띠 색상 선택|选择色带颜色|選擇色帶顏色|Elegir color de la banda|Escolher cor da faixa
+文字色|Text color|글자 색상|文字颜色|文字顏色|Color del texto|Cor do texto
+文字色モード|Text color mode|글자 색상 모드|文字颜色模式|文字顏色模式|Modo de color del texto|Modo de cor do texto
+読みやすい|Readable|읽기 쉽게|易读|易讀|Legible|Legível
+目立つ色|Vivid color|눈에 띄는 색상|醒目颜色|醒目顏色|Color llamativo|Cor de destaque
+色を選択|Choose color|색상 선택|选择颜色|選擇顏色|Elegir color|Escolher cor
+文字色を選択|Choose text color|글자 색상 선택|选择文字颜色|選擇文字顏色|Elegir color del texto|Escolher cor do texto
+帯の高さ|Banner height|띠 높이|色带高度|色帶高度|Altura de la banda|Altura da faixa
+文字サイズ|Text size|글자 크기|文字大小|文字大小|Tamaño del texto|Tamanho do texto
+枠の太さ|Border width|테두리 두께|边框宽度|邊框寬度|Grosor del borde|Espessura da borda
+見た目を初期設定に戻す|Reset appearance|모양을 기본값으로 재설정|重置外观|重設外觀|Restablecer apariencia|Redefinir aparência
+使い方|How to use|사용 방법|使用方法|使用方法|Cómo usar|Como usar
+色や表示設定は、このブラウザ内にチャットごとに保存されます。|Colors and appearance are saved per chat in this browser.|색상과 모양은 이 브라우저에 채팅별로 저장됩니다.|颜色和外观按聊天保存在此浏览器中。|顏色與外觀會依聊天儲存在此瀏覽器中。|Los colores y la apariencia se guardan por chat en este navegador.|As cores e a aparência são salvas por conversa neste navegador.
+帯のチャット名をクリックすると編集できます。|Click the chat name in the banner to edit it.|띠의 채팅 이름을 클릭하면 편집할 수 있습니다.|点击色带中的聊天名称即可编辑。|按一下色帶中的聊天名稱即可編輯。|Haz clic en el nombre del chat en la banda para editarlo.|Clique no nome da conversa na faixa para editá-lo.
+Enterまたは編集欄の外側のページをクリックすると確定します。|Press Enter or click the page outside the editor to confirm.|Enter를 누르거나 편집란 밖의 페이지를 클릭하면 확정됩니다.|按 Enter 或点击编辑框外的页面即可确认。|按 Enter 或點擊編輯欄外的頁面即可確認。|Pulsa Enter o haz clic en la página fuera del campo para confirmar.|Pressione Enter ou clique na página fora do campo para confirmar.
+
+キャンセルで編集を取り消せます。|Cancel discards the edit.|취소를 누르면 편집을 취소합니다.|取消可放弃编辑。|取消可放棄編輯。|Cancelar descarta la edición.|Cancelar descarta a edição.
+Chrome拡張を見る|View Chrome extensions|Chrome 확장 프로그램 보기|查看 Chrome 扩展程序|查看 Chrome 擴充功能|Ver extensiones de Chrome|Ver extensões do Chrome
+チャット名を確認中…|Checking chat name…|채팅 이름 확인 중…|正在确认聊天名称…|正在確認聊天名稱…|Comprobando el nombre…|Verificando o nome…
+チャットが切り替わったため編集を中止しました。保存開始後の場合は元のチャットの結果を確認してください。|Editing stopped because the chat changed. If saving had started, check the original chat.|채팅이 바뀌어 편집을 중지했습니다. 저장을 시작했다면 원래 채팅을 확인하세요.|聊天已切换，编辑已停止。如果已开始保存，请检查原聊天。|聊天已切換，編輯已停止。如果已開始儲存，請檢查原聊天。|La edición se detuvo al cambiar de chat. Si ya se guardaba, comprueba el chat original.|A edição parou porque a conversa mudou. Se o salvamento começou, confira a conversa original.
+設定を読み込めません。拡張機能を再読み込みしてからページを更新してください。|Cannot load settings. Reload the extension, then reload the page.|설정을 불러올 수 없습니다. 확장 프로그램과 페이지를 다시 로드하세요.|无法加载设置。请重新加载扩展程序，然后刷新页面。|無法載入設定。請重新載入擴充功能，再重新整理頁面。|No se pueden cargar los ajustes. Recarga la extensión y luego la página.|Não foi possível carregar as configurações. Recarregue a extensão e depois a página.
+チャットが切り替わりました。現在のチャットを確認してください。|The chat changed. Check the current chat.|채팅이 바뀌었습니다. 현재 채팅을 확인하세요.|聊天已切换。请确认当前聊天。|聊天已切換。請確認目前聊天。|El chat cambió. Comprueba el chat actual.|A conversa mudou. Confira a conversa atual.
+設定を保存できませんでした。|Could not save settings.|설정을 저장하지 못했습니다.|无法保存设置。|無法儲存設定。|No se pudieron guardar los ajustes.|Não foi possível salvar as configurações.
+保存しました|Saved|저장했습니다|已保存|已儲存|Guardado|Salvo
+保存できませんでした。表示のみ変更されています。もう一度設定してください。|Could not save. Only the display changed. Set it again.|저장하지 못했습니다. 화면만 변경되었습니다. 다시 설정하세요.|保存失败，仅显示已更改。请重新设置。|儲存失敗，僅顯示已變更。請重新設定。|No se guardó. Solo cambió la visualización. Configúralo de nuevo.|Não foi salvo. Apenas a exibição mudou. Configure novamente.
+読み込みエラーのため保存していません。ページを更新してください。|Not saved due to a loading error. Reload the page.|불러오기 오류로 저장하지 않았습니다. 페이지를 새로고침하세요.|加载出错，未保存。请刷新页面。|載入錯誤，未儲存。請重新整理頁面。|No se guardó por un error de carga. Recarga la página.|Não foi salvo devido a um erro de carregamento. Recarregue a página.
+読み込み後に保存します…|Will save after loading…|불러온 후 저장합니다…|加载后将保存…|載入後將儲存…|Se guardará al terminar de cargar…|Será salvo após carregar…
+保存中…|Saving…|저장 중…|正在保存…|正在儲存…|Guardando…|Salvando…
+チャット名の更新を確認しました。名前変更画面が残る場合は閉じてください。|The updated chat name was confirmed. Close the rename dialog if it remains open.|채팅 이름 변경을 확인했습니다. 이름 변경 창이 남아 있으면 닫으세요.|已确认聊天名称更新。如果重命名窗口仍打开，请关闭。|已確認聊天名稱更新。如果重新命名視窗仍開啟，請關閉。|Se confirmó el nuevo nombre. Cierra el diálogo si sigue abierto.|O novo nome foi confirmado. Feche a janela de renomear se continuar aberta.
+チャット名を変更しました|Chat renamed|채팅 이름을 변경했습니다|聊天名称已更改|聊天名稱已變更|Nombre del chat cambiado|Nome da conversa alterado
+帯から名前を変更できません。ChatGPTのメニューから変更してください。|Cannot rename from the banner. Use ChatGPT’s menu.|띠에서 이름을 변경할 수 없습니다. ChatGPT 메뉴를 사용하세요.|无法从色带重命名。请使用 ChatGPT 的菜单。|無法從色帶重新命名。請使用 ChatGPT 的選單。|No se puede renombrar desde la banda. Usa el menú de ChatGPT.|Não é possível renomear pela faixa. Use o menu do ChatGPT.
+現在のチャットとボタンの対応を一意に確認できません。対象リンクとボタンの最小共通祖先を確認してください。|Cannot uniquely associate the current chat with its button. Check their nearest shared container.|현재 채팅과 버튼의 관계가 명확하지 않습니다. 가장 가까운 공통 상위 요소를 확인하세요.|无法唯一确认当前聊天与按钮的对应关系。请检查最近的共同容器。|無法唯一確認目前聊天與按鈕的對應關係。請檢查最近的共同容器。|No se puede vincular el chat a un único botón. Comprueba su contenedor común más cercano.|Não foi possível associar a conversa a um único botão. Verifique o contêiner comum mais próximo.
+対象ボタンの表示領域を確認できません。|Cannot verify the button’s visible area.|버튼의 표시 영역을 확인할 수 없습니다.|无法确认按钮的可见区域。|無法確認按鈕的可見區域。|No se puede verificar el área visible del botón.|Não foi possível verificar a área visível do botão.
+対象ボタンが別の要素に覆われているため操作を中止しました。|Stopped because another element covers the button.|다른 요소가 버튼을 가려 중지했습니다.|按钮被其他元素遮挡，操作已停止。|按鈕被其他元素遮擋，操作已停止。|Se detuvo porque otro elemento cubre el botón.|A operação parou porque outro elemento cobre o botão.
+開いているメニューと対象ボタンの対応を確認できません。|Cannot associate the open menu with the target button.|열린 메뉴와 대상 버튼의 관계를 확인할 수 없습니다.|无法确认打开的菜单与目标按钮的对应关系。|無法確認開啟的選單與目標按鈕的對應關係。|No se puede vincular el menú abierto al botón.|Não foi possível associar o menu aberto ao botão.
+更新中・・・|Updating…|업데이트 중…|正在更新…|正在更新…|Actualizando…|Atualizando…
+現在のチャットを確認できません。|Cannot verify the current chat.|현재 채팅을 확인할 수 없습니다.|无法确认当前聊天。|無法確認目前聊天。|No se puede verificar el chat actual.|Não foi possível verificar a conversa atual.
+別のダイアログが開いているため中止しました。|Stopped because another dialog is open.|다른 창이 열려 있어 중지했습니다.|另一个对话框已打开，操作已停止。|另一個對話框已開啟，操作已停止。|Se detuvo porque hay otro diálogo abierto.|A operação parou porque outra janela está aberta.
+現在の名前を確認できません。|Cannot verify the current name.|현재 이름을 확인할 수 없습니다.|无法确认当前名称。|無法確認目前名稱。|No se puede verificar el nombre actual.|Não foi possível verificar o nome atual.
+名前を入力してください。|Enter a name.|이름을 입력하세요.|请输入名称。|請輸入名稱。|Introduce un nombre.|Digite um nome.
+開始条件|Starting checks|시작 조건|开始检查|開始檢查|Comprobaciones iniciales|Verificações iniciais
+タイムアウトしました。|Timed out.|시간이 초과되었습니다.|已超时。|已逾時。|Se agotó el tiempo.|O tempo limite foi atingido.
+チャットが切り替わったため中止しました。|Stopped because the chat changed.|채팅이 바뀌어 중지했습니다.|聊天已切换，操作已停止。|聊天已切換，操作已停止。|Se detuvo porque cambió el chat.|A operação parou porque a conversa mudou.
+表示がOFFのため中止しました。|Stopped because display is OFF.|표시가 OFF라서 중지했습니다.|显示已关闭，操作已停止。|顯示已關閉，操作已停止。|Se detuvo porque la visualización está desactivada.|A operação parou porque a exibição está desativada.
+名前変更画面にエラー表示があります。画面の内容を確認してください。|The rename dialog shows an error. Check its message.|이름 변경 창에 오류가 있습니다. 내용을 확인하세요.|重命名窗口显示错误。请查看窗口中的信息。|重新命名視窗顯示錯誤。請查看視窗中的訊息。|El diálogo de nombre muestra un error. Revisa su mensaje.|A janela de renomear mostra um erro. Verifique a mensagem.
+ページ側の名前が変わったため中止しました。|Stopped because the name on the page changed.|페이지의 이름이 바뀌어 중지했습니다.|页面上的名称已更改，操作已停止。|頁面上的名稱已變更，操作已停止。|Se detuvo porque cambió el nombre en la página.|A operação parou porque o nome na página mudou.
+対象行の確認|Checking target row|대상 행 확인|检查目标行|檢查目標列|Comprobación de fila|Verificação da linha
+メニューの対応確認|Checking menu association|메뉴 연결 확인|检查菜单对应关系|檢查選單對應關係|Comprobación del menú|Verificação do menu
+対象行が更新されたため中止しました。|Stopped because the target row was replaced.|대상 행이 교체되어 중지했습니다.|目标行已被替换，操作已停止。|目標列已被替換，操作已停止。|Se detuvo porque se sustituyó la fila.|A operação parou porque a linha foi substituída.
+対象行が変わりました。|The target row changed.|대상 행이 바뀌었습니다.|目标行已更改。|目標列已變更。|La fila cambió.|A linha mudou.
+名前を変更項目の確認|Checking Rename item|이름 변경 항목 확인|检查重命名菜单项|檢查重新命名選單項目|Comprobación de Renombrar|Verificação de Renomear
+対象メニューが変わりました。|The target menu changed.|대상 메뉴가 바뀌었습니다.|目标菜单已更改。|目標選單已變更。|El menú cambió.|O menu mudou.
+名前を変更|Rename|이름 변경|重命名|重新命名|Renombrar|Renomear
+「名前を変更」を一意に確認できません。|Cannot identify a unique Rename item.|이름 변경 항목을 하나로 확인할 수 없습니다.|无法唯一确认重命名菜单项。|無法唯一確認重新命名選單項目。|No se identifica una única opción Renombrar.|Não foi possível identificar uma única opção Renomear.
+名前変更画面の背景が変わったため中止しました。|Stopped because the rename backdrop changed.|이름 변경 배경이 바뀌어 중지했습니다.|重命名背景已更改，操作已停止。|重新命名背景已變更，操作已停止。|Se detuvo porque cambió el fondo del diálogo.|A operação parou porque o fundo da janela mudou.
+名前変更画面と背景の対応が変わったため中止しました。|Stopped because the dialog and backdrop association changed.|창과 배경의 관계가 바뀌어 중지했습니다.|窗口与背景的对应关系已更改，操作已停止。|視窗與背景的對應關係已變更，操作已停止。|Se detuvo porque cambió la relación entre diálogo y fondo.|A operação parou porque a relação entre janela e fundo mudou.
+チャット名を変更|Rename chat|채팅 이름 변경|重命名聊天|重新命名聊天|Renombrar chat|Renomear conversa
+保存|Save|저장|保存|儲存|Guardar|Salvar
+名前変更ダイアログの確認|Checking rename dialog|이름 변경 창 확인|检查重命名窗口|檢查重新命名視窗|Comprobación del diálogo|Verificação da janela
+別のダイアログが開いたため中止しました。|Stopped because another dialog opened.|다른 창이 열려 중지했습니다.|另一个对话框打开，操作已停止。|另一個對話框開啟，操作已停止。|Se detuvo porque se abrió otro diálogo.|A operação parou porque outra janela foi aberta.
+操作前から存在する画面のため中止しました。|Stopped because the dialog existed before this operation.|작업 전부터 있던 창이라 중지했습니다.|此窗口在操作前已存在，操作已停止。|此視窗在操作前已存在，操作已停止。|Se detuvo porque el diálogo ya existía.|A operação parou porque a janela já existia.
+名前変更画面が一致しません。|The rename dialog does not match.|이름 변경 창이 일치하지 않습니다.|重命名窗口不匹配。|重新命名視窗不符。|El diálogo de nombre no coincide.|A janela de renomear não corresponde.
+編集欄と保存操作を一意に確認できません。|Cannot uniquely identify the editor and save action.|편집란과 저장 작업을 명확히 확인할 수 없습니다.|无法唯一确认编辑框与保存操作。|無法唯一確認編輯欄與儲存操作。|No se identifican de forma única el campo y la acción de guardar.|Não foi possível identificar de forma única o campo e a ação de salvar.
+本来の入力欄の現在値または状態が一致しません。|The native field’s value or state does not match.|원래 입력란의 값이나 상태가 일치하지 않습니다.|原生输入框的值或状态不匹配。|原生輸入欄的值或狀態不符。|El valor o estado del campo original no coincide.|O valor ou estado do campo original não corresponde.
+入力の反映|Applying input|입력 반영|应用输入|套用輸入|Aplicación del texto|Aplicação do texto
+編集画面が変更されたため中止しました。|Stopped because the editor changed.|편집 화면이 바뀌어 중지했습니다.|编辑窗口已更改，操作已停止。|編輯視窗已變更，操作已停止。|Se detuvo porque cambió el editor.|A operação parou porque o editor mudou.
+編集欄と保存操作の対応が変わったため中止しました。|Stopped because the editor and save action association changed.|편집란과 저장 작업의 관계가 바뀌어 중지했습니다.|编辑框与保存操作的对应关系已更改，操作已停止。|編輯欄與儲存操作的對應關係已變更，操作已停止。|Se detuvo porque cambió la relación entre el campo y el guardado.|A operação parou porque a relação entre o campo e o salvamento mudou.
+保存と名称更新の確認|Checking save and name update|저장 및 이름 업데이트 확인|确认保存及名称更新|確認儲存及名稱更新|Comprobación de guardado y nombre|Verificação do salvamento e do nome
+名前変更画面の終了確認|Checking dialog closure|창 종료 확인|确认窗口关闭|確認視窗關閉|Comprobación del cierre|Verificação do fechamento
+ページ側の名前更新は確認しました。画面の終了を確認できませんでした。|The updated name was confirmed, but dialog closure could not be verified.|이름 변경은 확인했지만 창 종료는 확인하지 못했습니다.|已确认名称更新，但无法确认窗口关闭。|已確認名稱更新，但無法確認視窗關閉。|Se confirmó el nombre, pero no el cierre del diálogo.|O nome foi confirmado, mas não o fechamento da janela.
+保存結果が不明です。自動再送しません。元のチャットの名前を確認してください。|Save result unknown. No automatic retry. Check the original chat name.|저장 결과를 알 수 없습니다. 자동 재전송하지 않습니다. 원래 채팅 이름을 확인하세요.|保存结果不明，不会自动重试。请检查原聊天名称。|儲存結果不明，不會自動重試。請檢查原聊天名稱。|Resultado desconocido. No se reintentará automáticamente. Revisa el nombre del chat original.|Resultado desconhecido. Não haverá reenvio automático. Confira o nome da conversa original.
+帯を非表示にできませんでした。もう一度お試しください。|Could not hide the banner. Try again.|띠를 숨기지 못했습니다. 다시 시도하세요.|无法隐藏色带。请重试。|無法隱藏色帶。請重試。|No se pudo ocultar la banda. Inténtalo de nuevo.|Não foi possível ocultar a faixa. Tente novamente.
+設定を読み込めません。ページを更新してください。|Cannot load settings. Reload the page.|설정을 불러올 수 없습니다. 페이지를 새로고침하세요.|无法加载设置。请刷新页面。|無法載入設定。請重新整理頁面。|No se pueden cargar los ajustes. Recarga la página.|Não foi possível carregar as configurações. Recarregue a página.
+チャットが切り替わりました。|The chat changed.|채팅이 바뀌었습니다.|聊天已切换。|聊天已切換。|El chat cambió.|A conversa mudou.
+チャットが切り替わったため、自動で有効にしませんでした。|Chat changed; it was not enabled automatically.|채팅이 바뀌어 자동으로 켜지 않았습니다.|聊天已切换，未自动启用。|聊天已切換，未自動啟用。|El chat cambió; no se activó automáticamente.|A conversa mudou; não foi ativada automaticamente.
+新規チャット画面では設定できません。|Not available on a new chat screen.|새 채팅 화면에서는 설정할 수 없습니다.|新聊天页面无法设置。|新聊天頁面無法設定。|No disponible en un chat nuevo.|Indisponível na tela de nova conversa.
+設定を読み込み中…|Loading settings…|설정 불러오는 중…|正在加载设置…|正在載入設定…|Cargando ajustes…|Carregando configurações…
+全体OFFのため非表示|Hidden: extension is OFF|전체 OFF로 숨겨짐|扩展已关闭，因此隐藏|擴充功能已關閉，因此隱藏|Oculto: extensión desactivada|Oculto: extensão desativada
+保存済みのChatGPTチャットを開いてください。|Open a saved ChatGPT chat.|저장된 ChatGPT 채팅을 여세요.|请打开已保存的 ChatGPT 聊天。|請開啟已儲存的 ChatGPT 聊天。|Abre un chat guardado de ChatGPT.|Abra uma conversa salva do ChatGPT.
+設定を読み込めませんでした。拡張機能を再読み込みしてください。|Could not load settings. Reload the extension.|설정을 불러오지 못했습니다. 확장 프로그램을 다시 로드하세요.|无法加载设置。请重新加载扩展程序。|無法載入設定。請重新載入擴充功能。|No se cargaron los ajustes. Recarga la extensión.|Não foi possível carregar as configurações. Recarregue a extensão.
+保存できませんでした。もう一度お試しください。|Could not save. Try again.|저장하지 못했습니다. 다시 시도하세요.|保存失败。请重试。|儲存失敗。請重試。|No se pudo guardar. Inténtalo de nuevo.|Não foi possível salvar. Tente novamente.
+保存状態を確認できません。ポップアップを開き直してください。|Cannot verify saved state. Reopen the popup.|저장 상태를 확인할 수 없습니다. 팝업을 다시 여세요.|无法确认保存状态。请重新打开弹出窗口。|無法確認儲存狀態。請重新開啟彈出視窗。|No se puede verificar el estado guardado. Vuelve a abrir el panel.|Não foi possível verificar o estado salvo. Reabra o popup.
+拡張機能を有効にする|Enable extension|확장 프로그램 켜기|启用扩展程序|啟用擴充功能|Activar extensión|Ativar extensão
+このチャットで帯を表示|Show banner in this chat|이 채팅에 띠 표시|在此聊天中显示色带|在此聊天中顯示色帶|Mostrar banda en este chat|Mostrar faixa nesta conversa
+現在のチャットを確認中…|Checking current chat…|현재 채팅 확인 중…|正在确认当前聊天…|正在確認目前聊天…|Comprobando el chat actual…|Verificando a conversa atual…
+言語|Language|언어|语言|語言|Idioma|Idioma
+自動|Auto|자동|自动|自動|Automático|Automático
+ChatGPTのチャット画面を好きな色と大きなタイトルで見分けやすく。複数のチャットを同時に使うときなど、タブやウィンドウの取り違えに気づきやすくします。|Tell ChatGPT chats apart with custom colors and large titles. Spot mix-ups between tabs and windows when using multiple chats.|원하는 색과 큰 제목으로 ChatGPT 채팅을 쉽게 구분하세요. 여러 채팅을 함께 사용할 때 탭이나 창을 잘못 선택했는지 알아보기 쉬워집니다.|用喜欢的颜色和醒目的大标题区分ChatGPT聊天。同时使用多个聊天时，更容易发现是否弄错了标签页或窗口。|用喜歡的顏色和醒目的大標題區分ChatGPT聊天。同時使用多個聊天時，更容易察覺是否弄錯了分頁或視窗。|Distingue tus chats de ChatGPT con colores y títulos grandes. Detecta confusiones entre pestañas y ventanas al usar varios chats.|Diferencie chats do ChatGPT com cores e títulos grandes. Note confusões entre abas ou janelas ao usar várias conversas.
+対象行のボタンを一意に確認できません（複数候補）。|Multiple buttons in the target row; cannot identify one.|대상 행에 버튼이 여러 개 있어 확인할 수 없습니다.|目标行有多个按钮，无法唯一确认。|目標列有多個按鈕，無法唯一確認。|Hay varios botones en la fila; no se puede identificar uno.|Há vários botões na linha; não é possível identificar um.
+対象行のボタンが非表示または無効です（寸法・位置・disabled）。|Target button is hidden or disabled (size, position or disabled state).|대상 버튼이 숨겨졌거나 비활성화되었습니다(크기·위치·disabled).|目标按钮不可见或被禁用（尺寸、位置或禁用状态）。|目標按鈕不可見或被停用（尺寸、位置或停用狀態）。|Botón oculto o desactivado (tamaño, posición o estado).|Botão oculto ou desativado (tamanho, posição ou estado).
+対象行のボタンが非表示または無効です（祖先の表示・操作制限）。|Target button is unavailable due to ancestor visibility or interaction restrictions.|상위 요소의 표시·조작 제한으로 버튼을 사용할 수 없습니다.|祖先元素的显示或操作限制导致按钮不可用。|祖先元素的顯示或操作限制導致按鈕不可用。|Botón no disponible por restricciones de un elemento antecesor.|Botão indisponível por restrições de um elemento ancestral.
+対象ボタンがクリックを受け付けません（pointer-events:none）。|Target button does not accept clicks (pointer-events:none).|대상 버튼이 클릭을 받지 않습니다(pointer-events:none).|目标按钮不接受点击（pointer-events:none）。|目標按鈕不接受點擊（pointer-events:none）。|El botón no acepta clics (pointer-events:none).|O botão não aceita cliques (pointer-events:none).
+対象行のボタンが非表示または無効です（未確認のopacity）。|Target button is unavailable (unverified opacity).|대상 버튼을 사용할 수 없습니다(확인되지 않은 opacity).|目标按钮不可用（未经确认的 opacity）。|目標按鈕不可用（未確認的 opacity）。|Botón no disponible (opacity no verificada).|Botão indisponível (opacity não verificada).
+チャットごとに色を設定|Choose a color for each chat|채팅별 색상 설정|为每个聊天设置颜色|為每個聊天設定顏色|Elige un color para cada chat|Escolha uma cor para cada conversa
+色見本や「自由な色」で、このチャットの色を選びます。|Choose a swatch or use “Custom color” to set this chat’s color.|색상 견본이나 “사용자 지정 색상”에서 이 채팅의 색상을 선택합니다.|通过色块或“自定义颜色”为此聊天选择颜色。|透過色票或「自訂顏色」為此聊天選擇顏色。|Elige una muestra o usa «Color personalizado» para este chat.|Escolha uma amostra ou use “Cor personalizada” para esta conversa.
+帯・枠・文字を調整|Adjust the banner, border and text|띠·테두리·글자 조정|调整色带、边框和文字|調整色帶、邊框與文字|Ajusta la banda, el borde y el texto|Ajuste a faixa, a borda e o texto
+帯の高さ、枠の太さ、文字サイズと文字色を調整できます。|Adjust the banner height, border width, text size and text color.|띠 높이, 테두리 두께, 글자 크기와 글자색을 조정할 수 있습니다.|可调整色带高度、边框宽度、文字大小和文字颜色。|可調整色帶高度、邊框寬度、文字大小與文字顏色。|Ajusta la altura de la banda, el grosor del borde, el tamaño y el color del texto.|Ajuste a altura da faixa, a espessura da borda, o tamanho e a cor do texto.
+ChatGPTの表示言語が日本語・英語の場合のみ対応します。|Available only when ChatGPT’s display language is Japanese or English.|ChatGPT 표시 언어가 일본어 또는 영어일 때만 사용할 수 있습니다.|仅在 ChatGPT 显示语言为日语或英语时可用。|僅在 ChatGPT 顯示語言為日文或英文時可用。|Disponible solo si el idioma de ChatGPT es japonés o inglés.|Disponível apenas quando o idioma do ChatGPT é japonês ou inglês.
+チャットがフォルダ内にある場合、フォルダが閉じているとチャット名を変更できません。|If the chat is in a folder, you cannot rename it while the folder is collapsed.|채팅이 폴더 안에 있는 경우, 폴더가 접혀 있으면 채팅 이름을 변경할 수 없습니다.|如果聊天位于文件夹内，文件夹折叠时无法更改聊天名称。|如果聊天位於資料夾內，資料夾收合時無法更改聊天名稱。|Si el chat está dentro de una carpeta, no puedes cambiarle el nombre mientras la carpeta esté contraída.|Se a conversa estiver em uma pasta, não será possível renomeá-la enquanto a pasta estiver recolhida.
+このチャットの色表示をOFF|Hide colors for this chat|이 채팅의 색상 표시 끄기|关闭此聊天的颜色显示|關閉此聊天的顏色顯示|Oculta los colores de este chat|Oculte as cores desta conversa
+帯の左端の×で、このチャットの帯と枠を非表示にします。|Click × on the left of the banner to hide this chat’s banner and border.|띠 왼쪽의 ×를 누르면 이 채팅의 띠와 테두리가 숨겨집니다.|点击色带左侧的 ×，隐藏此聊天的色带和边框。|按一下色帶左側的 ×，隱藏此聊天的色帶與邊框。|Haz clic en × a la izquierda de la banda para ocultar la banda y el borde de este chat.|Clique no × à esquerda da faixa para ocultar a faixa e a borda desta conversa.
+色やサイズの設定は残ります。全体ONなら、拡張アイコンを開くと再表示できます。|Your color and size settings are kept. If the extension is enabled, open its popup to show them again.|색상과 크기 설정은 유지됩니다. 확장 프로그램이 활성화되어 있다면 아이콘을 눌러 다시 표시할 수 있습니다.|颜色和尺寸设置会保留。扩展程序已启用时，打开其弹窗即可重新显示。|顏色與尺寸設定會保留。擴充功能已啟用時，開啟其彈出視窗即可重新顯示。|Los ajustes de color y tamaño se conservan. Si la extensión está activada, abre su ventana para volver a mostrarlos.|As configurações de cor e tamanho são mantidas. Se a extensão estiver ativada, abra seu popup para exibi-las novamente.

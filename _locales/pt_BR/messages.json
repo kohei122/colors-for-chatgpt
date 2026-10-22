@@ -1,0 +1,362 @@
+{
+  "m000": {
+    "message": "Conversa atual"
+  },
+  "m001": {
+    "message": "Ocultar a faixa desta conversa"
+  },
+  "m002": {
+    "message": "Editar nome da conversa"
+  },
+  "m003": {
+    "message": "Nome da conversa a editar"
+  },
+  "m004": {
+    "message": "Cancelar"
+  },
+  "m005": {
+    "message": "Configurar cores e aparência da conversa"
+  },
+  "m006": {
+    "message": "Aparência"
+  },
+  "m007": {
+    "message": "Compondo"
+  },
+  "m008": {
+    "message": "Fechar aviso de alteração de nome"
+  },
+  "m009": {
+    "message": "Nome digitado"
+  },
+  "m010": {
+    "message": "Editar com este nome"
+  },
+  "m011": {
+    "message": "Cores e aparência da conversa"
+  },
+  "m012": {
+    "message": "Cores desta conversa"
+  },
+  "m013": {
+    "message": "Fechar configurações"
+  },
+  "m015": {
+    "message": "Escolher uma cor"
+  },
+  "m016": {
+    "message": "Cor personalizada"
+  },
+  "m017": {
+    "message": "Escolher cor da faixa"
+  },
+  "m018": {
+    "message": "Cor do texto"
+  },
+  "m019": {
+    "message": "Modo de cor do texto"
+  },
+  "m020": {
+    "message": "Legível"
+  },
+  "m021": {
+    "message": "Cor de destaque"
+  },
+  "m022": {
+    "message": "Escolher cor"
+  },
+  "m023": {
+    "message": "Escolher cor do texto"
+  },
+  "m024": {
+    "message": "Altura da faixa"
+  },
+  "m025": {
+    "message": "Tamanho do texto"
+  },
+  "m026": {
+    "message": "Espessura da borda"
+  },
+  "m027": {
+    "message": "Redefinir aparência"
+  },
+  "m028": {
+    "message": "Como usar"
+  },
+  "m029": {
+    "message": "As cores e a aparência são salvas por conversa neste navegador."
+  },
+  "m030": {
+    "message": "Clique no nome da conversa na faixa para editá-lo."
+  },
+  "m031": {
+    "message": "Pressione Enter ou clique na página fora do campo para confirmar."
+  },
+  "m033": {
+    "message": "Cancelar descarta a edição."
+  },
+  "m034": {
+    "message": "Ver extensões do Chrome"
+  },
+  "m035": {
+    "message": "Verificando o nome…"
+  },
+  "m036": {
+    "message": "A edição parou porque a conversa mudou. Se o salvamento começou, confira a conversa original."
+  },
+  "m037": {
+    "message": "Não foi possível carregar as configurações. Recarregue a extensão e depois a página."
+  },
+  "m038": {
+    "message": "A conversa mudou. Confira a conversa atual."
+  },
+  "m039": {
+    "message": "Não foi possível salvar as configurações."
+  },
+  "m040": {
+    "message": "Salvo"
+  },
+  "m041": {
+    "message": "Não foi salvo. Apenas a exibição mudou. Configure novamente."
+  },
+  "m042": {
+    "message": "Não foi salvo devido a um erro de carregamento. Recarregue a página."
+  },
+  "m043": {
+    "message": "Será salvo após carregar…"
+  },
+  "m044": {
+    "message": "Salvando…"
+  },
+  "m045": {
+    "message": "O novo nome foi confirmado. Feche a janela de renomear se continuar aberta."
+  },
+  "m046": {
+    "message": "Nome da conversa alterado"
+  },
+  "m047": {
+    "message": "Não é possível renomear pela faixa. Use o menu do ChatGPT."
+  },
+  "m048": {
+    "message": "Não foi possível associar a conversa a um único botão. Verifique o contêiner comum mais próximo."
+  },
+  "m049": {
+    "message": "Não foi possível verificar a área visível do botão."
+  },
+  "m050": {
+    "message": "A operação parou porque outro elemento cobre o botão."
+  },
+  "m051": {
+    "message": "Não foi possível associar o menu aberto ao botão."
+  },
+  "m052": {
+    "message": "Atualizando…"
+  },
+  "m053": {
+    "message": "Não foi possível verificar a conversa atual."
+  },
+  "m054": {
+    "message": "A operação parou porque outra janela está aberta."
+  },
+  "m055": {
+    "message": "Não foi possível verificar o nome atual."
+  },
+  "m056": {
+    "message": "Digite um nome."
+  },
+  "m057": {
+    "message": "Verificações iniciais"
+  },
+  "m058": {
+    "message": "O tempo limite foi atingido."
+  },
+  "m059": {
+    "message": "A operação parou porque a conversa mudou."
+  },
+  "m060": {
+    "message": "A operação parou porque a exibição está desativada."
+  },
+  "m061": {
+    "message": "A janela de renomear mostra um erro. Verifique a mensagem."
+  },
+  "m062": {
+    "message": "A operação parou porque o nome na página mudou."
+  },
+  "m063": {
+    "message": "Verificação da linha"
+  },
+  "m064": {
+    "message": "Verificação do menu"
+  },
+  "m065": {
+    "message": "A operação parou porque a linha foi substituída."
+  },
+  "m066": {
+    "message": "A linha mudou."
+  },
+  "m067": {
+    "message": "Verificação de Renomear"
+  },
+  "m068": {
+    "message": "O menu mudou."
+  },
+  "m069": {
+    "message": "Renomear"
+  },
+  "m070": {
+    "message": "Não foi possível identificar uma única opção Renomear."
+  },
+  "m071": {
+    "message": "A operação parou porque o fundo da janela mudou."
+  },
+  "m072": {
+    "message": "A operação parou porque a relação entre janela e fundo mudou."
+  },
+  "m073": {
+    "message": "Renomear conversa"
+  },
+  "m074": {
+    "message": "Salvar"
+  },
+  "m075": {
+    "message": "Verificação da janela"
+  },
+  "m076": {
+    "message": "A operação parou porque outra janela foi aberta."
+  },
+  "m077": {
+    "message": "A operação parou porque a janela já existia."
+  },
+  "m078": {
+    "message": "A janela de renomear não corresponde."
+  },
+  "m079": {
+    "message": "Não foi possível identificar de forma única o campo e a ação de salvar."
+  },
+  "m080": {
+    "message": "O valor ou estado do campo original não corresponde."
+  },
+  "m081": {
+    "message": "Aplicação do texto"
+  },
+  "m082": {
+    "message": "A operação parou porque o editor mudou."
+  },
+  "m083": {
+    "message": "A operação parou porque a relação entre o campo e o salvamento mudou."
+  },
+  "m084": {
+    "message": "Verificação do salvamento e do nome"
+  },
+  "m085": {
+    "message": "Verificação do fechamento"
+  },
+  "m086": {
+    "message": "O nome foi confirmado, mas não o fechamento da janela."
+  },
+  "m087": {
+    "message": "Resultado desconhecido. Não haverá reenvio automático. Confira o nome da conversa original."
+  },
+  "m088": {
+    "message": "Não foi possível ocultar a faixa. Tente novamente."
+  },
+  "m089": {
+    "message": "Não foi possível carregar as configurações. Recarregue a página."
+  },
+  "m090": {
+    "message": "A conversa mudou."
+  },
+  "m091": {
+    "message": "A conversa mudou; não foi ativada automaticamente."
+  },
+  "m092": {
+    "message": "Indisponível na tela de nova conversa."
+  },
+  "m093": {
+    "message": "Carregando configurações…"
+  },
+  "m094": {
+    "message": "Oculto: extensão desativada"
+  },
+  "m095": {
+    "message": "Abra uma conversa salva do ChatGPT."
+  },
+  "m096": {
+    "message": "Não foi possível carregar as configurações. Recarregue a extensão."
+  },
+  "m097": {
+    "message": "Não foi possível salvar. Tente novamente."
+  },
+  "m098": {
+    "message": "Não foi possível verificar o estado salvo. Reabra o popup."
+  },
+  "m099": {
+    "message": "Ativar extensão"
+  },
+  "m100": {
+    "message": "Mostrar faixa nesta conversa"
+  },
+  "m101": {
+    "message": "Verificando a conversa atual…"
+  },
+  "m102": {
+    "message": "Idioma"
+  },
+  "m103": {
+    "message": "Automático"
+  },
+  "m104": {
+    "message": "Diferencie chats do ChatGPT com cores e títulos grandes. Note confusões entre abas ou janelas ao usar várias conversas."
+  },
+  "m105": {
+    "message": "Há vários botões na linha; não é possível identificar um."
+  },
+  "m106": {
+    "message": "Botão oculto ou desativado (tamanho, posição ou estado)."
+  },
+  "m107": {
+    "message": "Botão indisponível por restrições de um elemento ancestral."
+  },
+  "m108": {
+    "message": "O botão não aceita cliques (pointer-events:none)."
+  },
+  "m109": {
+    "message": "Botão indisponível (opacity não verificada)."
+  },
+  "m110": {
+    "message": "Escolha uma cor para cada conversa"
+  },
+  "m111": {
+    "message": "Escolha uma amostra ou use “Cor personalizada” para esta conversa."
+  },
+  "m112": {
+    "message": "Ajuste a faixa, a borda e o texto"
+  },
+  "m113": {
+    "message": "Ajuste a altura da faixa, a espessura da borda, o tamanho e a cor do texto."
+  },
+  "m114": {
+    "message": "Disponível apenas quando o idioma do ChatGPT é japonês ou inglês."
+  },
+  "m115": {
+    "message": "Se a conversa estiver em uma pasta, não será possível renomeá-la enquanto a pasta estiver recolhida."
+  },
+  "m116": {
+    "message": "Oculte as cores desta conversa"
+  },
+  "m117": {
+    "message": "Clique no × à esquerda da faixa para ocultar a faixa e a borda desta conversa."
+  },
+  "m118": {
+    "message": "As configurações de cor e tamanho são mantidas. Se a extensão estiver ativada, abra seu popup para exibi-las novamente."
+  },
+  "appName": {
+    "message": "Colors for ChatGPT (by marusin)"
+  },
+  "appDescription": {
+    "message": "Diferencie chats do ChatGPT com cores e títulos grandes. Note confusões entre abas ou janelas ao usar várias conversas."
+  },
+  "localeCode": {
+    "message": "pt_BR"
+  }
+}

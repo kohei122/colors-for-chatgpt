@@ -1,0 +1,38 @@
+Uma cor de sua escolha para cada conversa. 🎨
+Identifique a conversa aberta pela cor e pelo título em destaque.
+
+Colors for ChatGPT é uma extensão de navegador que permite escolher a cor da faixa e da borda de cada conversa.
+Ao usar várias conversas ao mesmo tempo, fica mais fácil perceber se você está na aba ou janela errada.
+
+■ Como começar
+① Após instalar a extensão, recarregue as páginas do ChatGPT que estiverem abertas.
+② Clique no ícone da extensão.
+Pronto: uma faixa colorida e o título aparecerão nessa conversa.
+Use o menu de cor e exibição da faixa para ajustar as cores e os tamanhos.
+
+■ Principais recursos
+• Escolha a cor da faixa e da borda de cada conversa.
+• Veja o nome da conversa em destaque no topo da página.
+• Ajuste a altura da faixa, a espessura da borda, o tamanho e a cor do texto.
+• Clique no nome da conversa na faixa para editar o nome real no ChatGPT.
+• Oculte a faixa com × ou use o popup para ativar ou desativar a extensão globalmente ou por conversa.
+• Salve as configurações de cada conversa e compartilhe-as entre abas do mesmo perfil do navegador.
+• Interface da extensão disponível em sete idiomas.
+
+Observação: A edição do nome só está disponível quando o idioma de exibição do ChatGPT é japonês ou inglês. A conversa precisa estar visível na barra lateral; se a pasta estiver recolhida, não será possível editar o nome.
+
+■ Ambiente compatível
+Compatível com o site oficial do ChatGPT (chatgpt.com).
+Não oferece suporte a aplicativos para desktop, aplicativos móveis ou outros serviços de IA.
+Novas conversas podem ser usadas depois de iniciadas e de receberem um ID de conversa.
+Mudanças na interface do ChatGPT podem tornar alguns recursos indisponíveis.
+
+■ Privacidade
+A extensão não coleta nem salva as mensagens das conversas ou o conteúdo do campo de entrada de mensagens e não envia dados para servidores externos próprios.
+As configurações são salvas no navegador, e os IDs de conversa são usados para identificar as conversas.
+A extensão lê e interage com elementos da página para ajustar a exibição e renomear conversas.
+
+Desenvolvido por marusin tools
+
+Se a extensão for útil para você, agradecemos uma avaliação ou comentário na Chrome Web Store.
+Você também pode dar apenas uma nota com estrelas, sem escrever um comentário.

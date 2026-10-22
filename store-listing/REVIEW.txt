@@ -1,0 +1,93 @@
+掲載詳細説明の整理（2026-10-22 / 1.0.0）
+利用者提示の日本語原稿を基に、7言語を「導入・使い方・主な機能・名前編集の制限・対応環境・プライバシー・開発者とレビュー案内」の同じ構成へ整理。日本語の既存編集を保持し、表示には全体設定ONが必要なこと、収集しない入力内容は本文入力欄の内容であることを明確化。他6言語にも反映。ChatGPT側の日英限定、サイドバー表示と閉じたフォルダの制限を維持。
+UTF-8、7言語の構成・機能・制限・プライバシーの意味整合を確認。製品名・概要・製品コード・版番号・公開用ZIPは変更なし。ストア入力・公開なし。
+
+1.0.0公開準備（2026-10-22）
+7言語の詳細説明へ、名前変更に対象サイドバー行の表示が必要なことと、フォルダが閉じている場合は変更できず手動展開が必要なことを追記しました。製品名・概要は確定稿を維持し、製品メタデータと一致。タイトル全文機能の掲載なし。未公開。以下の0.1.33記録は履歴として保持します。
+
+更新：2026-10-22
+以下の原稿作成時に記録した製品名・概要の差分は、製品メタデータへ反映済みです。manifest名・action.default_title・appName・文書titleは正式名、各言語appDescriptionはsummary.txtと一致。ポップアップの可視ブランドは利用者指定により従来表示を維持します。版番号0.1.33、ストア未入力・未公開。以下は原稿作成時の確認記録です。
+
+Colors for ChatGPT (by marusin) — 掲載用原稿の確認記録
+作成日：2026-10-22 / 対象実装：0.1.33 / ストア未入力・未公開
+
+既存の掲載文専用フォルダは見つからなかったためstore-listingを新設。各言語ディレクトリのname.txt、summary.txt、description.txtは内容だけを格納したUTF-8（BOMなし）。ファイル全体をコピーできます。
+
+概要文字数（空白・句読点を含む。改行なし。Unicodeコードポイント数とUTF-16単位数が同一）：
+日本語 (ja): 77文字
+英語 (en): 126文字
+韓国語 (ko): 79文字
+簡体字中国語 (zh_CN): 52文字
+繁体字中国語 (zh_TW): 51文字
+スペイン語 (es): 129文字
+ブラジルポルトガル語 (pt_BR): 119文字
+
+132文字の基準：Chrome Developers「Manifest - Description」
+https://developer.chrome.com/docs/extensions/reference/manifest/description
+
+実装との照合：
+・manifest：対象はhttps://chatgpt.com/*、版番号0.1.33、storage権限。
+・core.js / content.js：帯色、枠、中央タイトル、height/fontSize/border、auto/vivid/custom。
+・content.js：保存済みチャット別設定 > 共通初期値 > 従来初期値。引き継ぎはheight/fontSize/borderとauto/vividのみ。custom、textColor、帯色、名前、ON/OFFは除外。
+・popup.js / content.js：アイコンでポップアップを開くと保存済み対象チャットを個別ON。全体OFFは変更しない。×は個別OFFだけ保存。storage.localとonChangedによる同一プロファイル内の別タブ反映。
+・content.js nativeProfile/nativeLabels：ChatGPT本体のja/ja-*、en/en-*だけ名前編集可能。拡張言語と独立。対象不明時は操作せず、保存再送なし。
+・製品内に独自のfetch/XMLHttpRequest/sendBeacon/WebSocket送信は確認されない。設定保存はstorage.local。表示・名前変更のためDOMを読み書きするが、会話本文・本文入力値を保存しない。名前変更はページのネイティブUIを使用する。
+
+7言語の整合レビュー：
+全7言語で、色帯と枠／中央タイトル／寸法と文字色／個別・全体ON/OFF／×／同一プロファイルの別タブ共有／引き継ぎと除外／日英限定名前編集／Enter・外側クリック・キャンセル／対象環境・新規画面制限／プライバシー／開発者・レビュー案内を確認。
+効果は取り違えに気づきやすくする範囲とし、誤送信防止の保証や未実装機能は記載しない。ネイティブ話者による翻訳レビューと実ストア入力は未実施。
+
+製品との未反映差分（今回は製品ファイルを変更しない）：
+manifest.name / action.default_title / popupの名称はColors for ChatGPT。掲載確定名はColors for ChatGPT (by marusin)。
+manifest.descriptionは__MSG_appDescription__を参照。_localesのappDescriptionと今回のsummary.txtは全7言語で異なる。i18n-data.js等の同梱翻訳も今回は変更しない。
+
+ja
+現在の製品概要：ChatGPTの現在のチャットを、大きなタイトルと色帯・外周枠で見分けます。
+掲載用の新概要：ChatGPTのチャット画面を好きな色と大きなタイトルで見分けやすく。複数のチャットを同時に使うときなど、タブやウィンドウの取り違えに気づきやすくします。
+
+en
+現在の製品概要：Identify the current ChatGPT chat with a large title, colored banner and border.
+掲載用の新概要：Tell ChatGPT chats apart with custom colors and large titles. Spot mix-ups between tabs and windows when using multiple chats.
+
+ko
+現在の製品概要：큰 제목과 색상 띠, 테두리로 현재 ChatGPT 채팅을 구분합니다.
+掲載用の新概要：원하는 색과 큰 제목으로 ChatGPT 채팅을 쉽게 구분하세요. 여러 채팅을 함께 사용할 때 탭이나 창을 잘못 선택했는지 알아보기 쉬워집니다.
+
+zh_CN
+現在の製品概要：通过大标题、色带和边框识别当前 ChatGPT 聊天。
+掲載用の新概要：用喜欢的颜色和醒目的大标题区分ChatGPT聊天。同时使用多个聊天时，更容易发现是否弄错了标签页或窗口。
+
+zh_TW
+現在の製品概要：透過大標題、色帶與邊框識別目前的 ChatGPT 聊天。
+掲載用の新概要：用喜歡的顏色和醒目的大標題區分ChatGPT聊天。同時使用多個聊天時，更容易察覺是否弄錯了分頁或視窗。
+
+es
+現在の製品概要：Identifica el chat actual de ChatGPT con un título grande, una banda de color y un borde.
+掲載用の新概要：Distingue tus chats de ChatGPT con colores y títulos grandes. Detecta confusiones entre pestañas y ventanas al usar varios chats.
+
+pt_BR
+現在の製品概要：Identifique a conversa atual do ChatGPT com um título grande, uma faixa colorida e uma borda.
+掲載用の新概要：Diferencie chats do ChatGPT com cores e títulos grandes. Note confusões entre abas ou janelas ao usar várias conversas.
+
+ファイル一覧：
+ja/name.txt
+ja/summary.txt
+ja/description.txt
+en/name.txt
+en/summary.txt
+en/description.txt
+ko/name.txt
+ko/summary.txt
+ko/description.txt
+zh_CN/name.txt
+zh_CN/summary.txt
+zh_CN/description.txt
+zh_TW/name.txt
+zh_TW/summary.txt
+zh_TW/description.txt
+es/name.txt
+es/summary.txt
+es/description.txt
+pt_BR/name.txt
+pt_BR/summary.txt
+pt_BR/description.txt
