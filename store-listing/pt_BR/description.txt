@@ -32,6 +32,8 @@ A extensão não coleta nem salva as mensagens das conversas ou o conteúdo do c
 As configurações são salvas no navegador, e os IDs de conversa são usados para identificar as conversas.
 A extensão lê e interage com elementos da página para ajustar a exibição e renomear conversas.
 
+O código-fonte está disponível publicamente no GitHub para que qualquer pessoa possa verificar como a extensão funciona.
+
 Desenvolvido por marusin tools
 
 Se a extensão for útil para você, agradecemos uma avaliação ou comentário na Chrome Web Store.

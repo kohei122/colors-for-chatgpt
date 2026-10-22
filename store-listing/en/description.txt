@@ -32,6 +32,8 @@ The extension does not collect or save conversation messages or the contents of 
 Settings are stored in your browser, and chat IDs are used to identify chats.
 It reads and interacts with page elements to adjust the display and rename chats.
 
+The source code is publicly available on GitHub, so anyone can review how the extension works.
+
 Developed by marusin tools
 
 If you enjoy using the extension, a rating or review on the Chrome Web Store would be appreciated.

@@ -32,6 +32,8 @@ La extensión no recopila ni guarda los mensajes de las conversaciones ni el con
 La configuración se guarda en el navegador y se utilizan los ID de chat para identificar los chats.
 La extensión lee e interactúa con elementos de la página para ajustar la visualización y cambiar nombres.
 
+El código fuente está disponible públicamente en GitHub para que cualquiera pueda revisar cómo funciona la extensión.
+
 Desarrollado por marusin tools
 
 Si te resulta útil, agradeceríamos una valoración o reseña en Chrome Web Store.
