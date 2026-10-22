@@ -31,11 +31,11 @@ MITライセンスで提供します。全文は [LICENSE](LICENSE) を参照し
 
 ## 公開用ZIP
 
-[colors-for-chatgpt-1.0.0.zip](releases/colors-for-chatgpt-1.0.0.zip)（19ファイル、68,717 bytes）を作成・検証しました。[内容一覧](releases/colors-for-chatgpt-1.0.0.files.txt)／[SHA-256](releases/colors-for-chatgpt-1.0.0.zip.sha256)。
+[colors-for-chatgpt-1.0.0.zip](releases/colors-for-chatgpt-1.0.0.zip)（LICENSEを含む20ファイル、69,439 bytes）を作成・検証しました。[内容一覧](releases/colors-for-chatgpt-1.0.0.files.txt)／[SHA-256](releases/colors-for-chatgpt-1.0.0.zip.sha256)。
 
-SHA-256：`e97a0020f1c5f37fb95ee2a9ac7b4affc3aff9676bf0c8ae778424aae5dc1095`
+SHA-256：`02639e4fcfc9a79dc293eaf628d814aad204bcc12171937f7ad27d4ff625fae9`
 
-作成は `python tools/package-release.py`、展開物の確認は `node tools/verify-package.cjs`（検証環境ではCHROMIUM_EXECUTABLEを指定）。明示的な実行ファイルだけを梱包し、診断・テスト・依存ライブラリ・掲載文・開発資料を除外します。既存の異なる同名ZIPは上書きしません。
+作成は `python tools/package-release.py`、展開物の確認は `node tools/verify-package.cjs`（検証環境ではCHROMIUM_EXECUTABLEを指定）。明示した実行ファイルとLICENSEだけを梱包し、診断・テスト・依存ライブラリ・掲載文・開発資料を除外します。既存の異なる同名ZIPは上書きしません。
 
 ZIPを別の一時フォルダへ展開し、そこから拡張を読み込んで製品名・版番号・アイコン・7言語popup・content scriptを確認しました。これは模擬ページでのパッケージ検証であり、ZIP展開物の実ChatGPT再確認ではありません。ストア入力・審査提出・公開は行っていません。
 
@@ -43,7 +43,7 @@ ZIPを別の一時フォルダへ展開し、そこから拡張を読み込ん�
 
 Node.js 20以降とPython 3を使用します。`npm ci` で開発依存を導入し、`npx playwright install chromium` でテスト用ブラウザを用意します。`npm test` はコアテスト、`node --test tests/*.test.js` は全体テストです。環境に応じて `CHROMIUM_EXECUTABLE` でブラウザを指定できます。
 
-公開リポジトリには実行コード・翻訳・アイコン・掲載文・検証記録・テストソース・診断用コードと手順・開発スクリプトを含めます。ZIP、スクリーンショット、計測結果JSON、ログ、ローカル監査記録、node_modulesは含めません。上記および過去記録にある出力ファイルへのリンクはローカル検証時の記録です。必要ならスクリプトから再生成してください。ライセンス追加前に検証した既存ZIPは保持しており、LICENSEはそのZIPには含まれていません。
+公開リポジトリには実行コード・翻訳・アイコン・掲載文・検証記録・テストソース・診断用コードと手順・開発スクリプトを含めます。ZIP、スクリーンショット、計測結果JSON、ログ、ローカル監査記録、node_modulesは含めません。上記および過去記録にある出力ファイルへのリンクはローカル検証時の記録です。必要ならスクリプトから再生成してください。現行ZIPにはLICENSEを含めています。旧19ファイル版とその検証成果物はローカルのreleases/history/pre-license-1.0.0へ保持し、旧ハッシュはVALIDATION.mdの過去記録に残しています。
 
 ## 過去の開発・検証記録
 

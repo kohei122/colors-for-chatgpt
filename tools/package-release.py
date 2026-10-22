@@ -3,12 +3,12 @@ from pathlib import Path
 import hashlib, json, re, tempfile, zipfile
 ROOT = Path(__file__).resolve().parents[1]
 LOCALES = ['en', 'ja', 'ko', 'zh_CN', 'zh_TW', 'es', 'pt_BR']
-FILES = ['manifest.json', 'core.js', 'content.js', 'i18n.js', 'i18n-data.js',
+FILES = ['LICENSE', 'manifest.json', 'core.js', 'content.js', 'i18n.js', 'i18n-data.js',
          'popup.html', 'popup.css', 'popup.js'] + [f'_locales/{x}/messages.json' for x in LOCALES] + [f'icons/icon{x}.png' for x in [16,32,48,128]]
 m = json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
 assert m['version'] == '1.0.0'
 assert m['name'] == 'Colors for ChatGPT (by marusin)'
-assert len(FILES) == len(set(FILES)) == 19
+assert len(FILES) == len(set(FILES)) == 20
 refs = list(m['icons'].values()) + list(m['action']['default_icon'].values()) + [m['action']['default_popup']]
 for cs in m['content_scripts']: refs += cs.get('js', []) + cs.get('css', [])
 html = (ROOT/'popup.html').read_text(encoding='utf-8')

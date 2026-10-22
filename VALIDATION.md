@@ -1,3 +1,42 @@
+## 1.0.0 公開用ZIPへのLICENSE追加（2026-10-22）
+
+パッケージ許可リストへリポジトリ直下のLICENSEを追加し、20ファイルへ更新。manifest.jsonとLICENSEはZIP直下。既存19ファイルは旧ZIPとバイト単位で完全一致。製品コード・版番号1.0.0は変更なし。
+
+- 保存先：releases/colors-for-chatgpt-1.0.0.zip
+- サイズ：69,439 bytes
+- SHA-256：`02639e4fcfc9a79dc293eaf628d814aad204bcc12171937f7ad27d4ff625fae9`
+- 参照整合、CRC、全20ファイルと元ファイルの一致、旧19ファイルとの差分がLICENSE追加のみであること：PASS。
+- Python構文確認：PASS。再実行でも同一ZIPになることを確認。
+- 展開物を隔離したChromiumで読み込み、正式名・1.0.0・管理画面アイコン・4サイズPNG・7言語popup・content script・ZIPハッシュを確認：PASS（模擬ChatGPT画面）。実ChatGPTを今回再確認したものではない。
+- 製品コードに変更なしのため270件は再実行しない。実ChatGPTでの失敗時復旧は未確認のまま。
+- 旧ZIP（68,717 bytes）と旧検証成果物をreleases/history/pre-license-1.0.0へ保持。旧SHA-256：`e97a0020f1c5f37fb95ee2a9ac7b4affc3aff9676bf0c8ae778424aae5dc1095`。
+- ZIPと生成物は.gitignoreで除外。スクリプト・README・本記録だけをGit対象とする。GitHub Release・ストア入力・審査提出は行わない。
+
+ZIP内容一覧（20ファイル）：
+
+```text
+LICENSE
+_locales/en/messages.json
+_locales/es/messages.json
+_locales/ja/messages.json
+_locales/ko/messages.json
+_locales/pt_BR/messages.json
+_locales/zh_CN/messages.json
+_locales/zh_TW/messages.json
+content.js
+core.js
+i18n-data.js
+i18n.js
+icons/icon128.png
+icons/icon16.png
+icons/icon32.png
+icons/icon48.png
+manifest.json
+popup.css
+popup.html
+popup.js
+```
+
 ## 1.0.0 初回Publicリポジトリ準備（2026-10-22）
 
 対象フォルダと親はGit未管理。指定リモートはPublic、既存参照なしと確認。19実行ファイルは検証済みZIPとバイト単位で一致し、製品動作・版番号の変更なし。ZIP後の変更は掲載詳細説明7言語、MIT LICENSE・README、package.jsonのlicense、公開準備のロックファイル・除外設定・文書およびテスト例の匿名化。公開用ZIPは再作成しない。
