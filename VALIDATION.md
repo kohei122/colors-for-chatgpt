@@ -1,3 +1,13 @@
+## 1.0.0 レビュー依頼のストア共通化（2026-10-24）
+
+- 開始時はColors・LPとも既存差分なし。7言語のdescription.txt末尾2文を、ストア名を含まない評価・レビュー依頼の1文へ変更。日本語は指定文と一致。他6言語も既存の依頼表現を維持し、ストア名と星だけの評価に関する説明のみ削除した。
+- store-listing/REVIEW.txtへ、Chrome / Edgeで共用する掲載文の運用ルール4項目を追加。過去記録は保持。
+- 全7言語で編集前の末尾2文以外がバイト単位で一致、UTF-8 strict decode、既存改行・末尾改行の保持、Git HEADとのLF正規化比較、git diff --check：PASS。意味整合を確認。ネイティブ話者レビューは未実施。
+- 製品コード・製品名・summary.txt・版番号1.0.0は変更なし。公開ZIPは再生成せず、SHA-256は既存と同じ02639e4fcfc9a79dc293eaf628d814aad204bcc12171937f7ad27d4ff625fae9。
+- LPのextensions.json、topics.json、ui-labels.json、support-page.json、privacy-policy.jsonとBackend / Page Codeを検索・確認。日英に今回に相当するストア限定レビュー依頼はなかった。プライバシー文のストア利用規約説明、Newsの審査注意書き、ソース確認等のreviewはレビュー依頼ではない。ストア別ダウンロードボタン・リンクを含めLPは無変更。
+- LP変更・News追加・Wix作業は不要：ストア共通原稿の依頼文整理のみで製品情報の変更がなく、LPに修正対象がないため。共通構造・CMS・Backend・Page Code・SEO/JSON-LD生成処理は変更しない。LP実画面・Wix現行設定の再確認は実施していない。
+- 文言・文書のみのため、本文差分・文字コード・変更範囲の検証を実施し、製品ブラウザテストや無変更LPの回帰テストは再実行しない。ストア転記対象はstore-listing/{ja,en,ko,zh_CN,zh_TW,es,pt_BR}/description.txt。ストア入力・保存・公開、Wix公開操作なし。GitHub pushは公開LPへの配備と区別する。
+
 ## 1.0.0 ストア詳細説明の導入整理（2026-10-24）
 
 - 開始時はColors・隣接LPリポジトリとも差分なし。両対象内と共通上位ディレクトリに適用されるAGENTS.mdは見つからなかった。

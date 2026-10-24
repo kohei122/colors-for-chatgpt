@@ -32,5 +32,4 @@ El código fuente está disponible públicamente en GitHub para que cualquiera p
 
 Desarrollado por marusin tools
 
-Si te resulta útil, agradeceríamos una valoración o reseña en Chrome Web Store.
-También puedes dejar solo una puntuación con estrellas, sin comentario.
+Si te resulta útil, agradeceríamos una valoración o reseña.

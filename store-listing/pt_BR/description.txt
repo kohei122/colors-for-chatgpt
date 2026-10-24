@@ -32,5 +32,4 @@ O código-fonte está disponível publicamente no GitHub para que qualquer pesso
 
 Desenvolvido por marusin tools
 
-Se a extensão for útil para você, agradecemos uma avaliação ou comentário na Chrome Web Store.
-Você também pode dar apenas uma nota com estrelas, sem escrever um comentário.
+Se a extensão for útil para você, agradecemos uma avaliação ou comentário.

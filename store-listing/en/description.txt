@@ -32,5 +32,4 @@ The source code is publicly available on GitHub, so anyone can review how the ex
 
 Developed by marusin tools
 
-If you enjoy using the extension, a rating or review on the Chrome Web Store would be appreciated.
-You can also leave a star rating without a comment.
+If you enjoy using the extension, a rating or review would be appreciated.
