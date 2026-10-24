@@ -1,8 +1,4 @@
 Uma cor de sua escolha para cada conversa. 🎨
-Identifique a conversa aberta pela cor e pelo título em destaque.
-
-Colors for ChatGPT é uma extensão de navegador que permite escolher a cor da faixa e da borda de cada conversa.
-Ao usar várias conversas ao mesmo tempo, fica mais fácil perceber se você está na aba ou janela errada.
 
 ■ Como começar
 ① Após instalar a extensão, recarregue as páginas do ChatGPT que estiverem abertas.

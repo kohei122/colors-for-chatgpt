@@ -1,3 +1,16 @@
+## 1.0.0 ストア詳細説明の導入整理（2026-10-24）
+
+- 開始時はColors・隣接LPリポジトリとも差分なし。両対象内と共通上位ディレクトリに適用されるAGENTS.mdは見つからなかった。
+- `store-listing/{ja,en,ko,zh_CN,zh_TW,es,pt_BR}/description.txt` の導入3文のみ削除し、既存キャッチコピー、空行、既存の使い方見出しへ接続。7言語の削除内容の対応と構成を確認。新規翻訳なし、ネイティブ話者レビューは未実施。
+- 編集直前の各ファイルと比較し、キャッチコピーおよび使い方見出し以降がバイト単位で一致：PASS。UTF-8 strict decode、既存CRLF維持、Git HEADとのLF正規化比較、`git diff --check`：PASS。最初のHEAD比較はGitのLFと作業ツリーのCRLFの差で不一致になったため、正規化後に再確認した。
+- name.txt、summary.txt、製品コード、manifest/packageの1.0.0は変更なし。公開ZIPは再生成せず、SHA-256 `02639e4fcfc9a79dc293eaf628d814aad204bcc12171937f7ad27d4ff625fae9` が既存記録と一致。
+- LP調査対象HEAD：`8484856ab537bad37140c0c3fd51ab888b733102`。`extensions.json` のColors日英本文・機能・FAQ・制限、`privacy-policy.json`、`topics.json`、README、docs/operation.md、docs/add-extension-guide.md、docs/enter-key-control-release-workflow.md、docs/release-status.md、Backend / Page Codeを読み取り確認。
+- LP変更不要：ストア概要との重複整理であり、製品仕様・制限・storage権限・対応範囲・公開状態を変更しない。LPは独立した説明を持ち、ストア用description.txtを読み込まない。LP側にColorsのストア説明コピーもない。News追加、共通構造、CMS、SEO生成処理、Wix手作業は今回不要。
+- LP検証：`python scripts/validate-catalog.py`（6製品）、`python scripts/validate-news.py`（13記事・可視13件）、`node scripts/test-wix-catalog.cjs`、`node scripts/test-wix-news.cjs`：すべてPASS。Python初回はURI format依存不足。TEMPへjsonschema[format]を導入し、同依存を参照できる実行環境で再実行してPASS。リポジトリやグローバル依存の変更なし。製品コード無変更のため拡張のブラウザテストは再実行しない。
+- 現行LP JSONではColorsのstatusはpublished、Chrome/Edge URLあり、News `colors-for-chatgpt-release-2026-10-23` はisVisible=true。docs/operation.mdの初期登録時false/CMS下書き記録より後のcommitでNewsが公開されている。ストア公開の記録根拠はユーザー報告であり、今回ストア実ページの取得は失敗したため最新版・公開日時の独立再確認はできていない。
+- 公開ページ取得：日本語トップ `https://www.ori-marusin.com/extensions` でColors Newsを確認。英語トップ `https://www.ori-marusin.com/en/extensions` は取得結果が古く、Colors反映は未確認。日英個別LPは取得ツールでアクセスできず、非公開とは断定しない。Wix Studio現行コード・CMS・実画面SEO/JSON-LDは未確認。GitHubへのpushとWix公開を区別する。
+- ストアへの転記対象は上記7言語のdescription.txtのみ。ストア管理画面への入力・保存・公開、Wix編集・公開は実施しない。
+
 ## 1.0.0 公開用ZIPへのLICENSE追加（2026-10-22）
 
 パッケージ許可リストへリポジトリ直下のLICENSEを追加し、20ファイルへ更新。manifest.jsonとLICENSEはZIP直下。既存19ファイルは旧ZIPとバイト単位で完全一致。製品コード・版番号1.0.0は変更なし。

@@ -1,8 +1,4 @@
 Un color a tu gusto para cada chat. 🎨
-Identifica el chat abierto con un color y un título grande.
-
-Colors for ChatGPT es una extensión de navegador que permite elegir el color de la franja y del marco de cada chat.
-Al usar varios chats a la vez, ayuda a notar si te has equivocado de pestaña o ventana.
 
 ■ Cómo empezar
 ① Tras instalar la extensión, recarga las páginas de ChatGPT que tengas abiertas.

@@ -1,8 +1,4 @@
 A color of your choice for each chat. 🎨
-Identify your open chat with color and a large title.
-
-Colors for ChatGPT is a browser extension that lets you choose a colored banner and frame for each chat.
-When using several chats at once, it helps you notice if you are in the wrong tab or window.
 
 ■ Getting started
 ① After installation, reload any open ChatGPT pages.
