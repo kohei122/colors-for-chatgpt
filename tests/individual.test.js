@@ -19,7 +19,7 @@ const state=p=>p.evaluate(()=>message({type:'chat-colors:state'}));
 async function toggle(p,id,value){return p.evaluate(r=>message(r),{type:'chat-colors:set-display',id,value});}
 async function route(p,url){await p.evaluate(url=>{history.pushState({},'',url);document.dispatchEvent(new Event('visibilitychange'));},url);}
 test('025 brand, permission boundary and stable internal identifiers',()=>{
- const m=JSON.parse(fs.readFileSync(path.join(root,'manifest.json')));assert.equal(m.name,'Colors for ChatGPT (by marusin)');assert.equal(m.version,'1.0.0');assert.deepEqual(m.permissions,['storage']);assert.equal(m.host_permissions,undefined);assert.deepEqual(m.content_scripts[0].matches,['https://chatgpt.com/*']);assert.match(fs.readFileSync(path.join(root,'popup.html'),'utf8'),/このチャットで帯を表示/);
+ const m=JSON.parse(fs.readFileSync(path.join(root,'manifest.json')));assert.equal(m.name,'Colors for ChatGPT (by marusin)');assert.equal(m.version,'1.0.1');assert.deepEqual(m.permissions,['storage']);assert.equal(m.host_permissions,undefined);assert.deepEqual(m.content_scripts[0].matches,['https://chatgpt.com/*']);assert.match(fs.readFileSync(path.join(root,'popup.html'),'utf8'),/このチャットで帯を表示/);
 });
 test('025 absent, malformed and old color settings default OFF without writes',async t=>{
  const {p,data,writes,set}=await setup(t,{[prefix+'a']:{color:'#123456',fontSize:34}});await ready(p);assert.equal(await shown(p),false);assert.equal(await p.locator('html').getAttribute('data-thread-colors-active'),null);

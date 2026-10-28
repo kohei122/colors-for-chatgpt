@@ -1,0 +1,3 @@
+1.0.1
+
+Corrigido um problema em que as dicas dos controles superiores se sobrepunham à faixa colorida em conversas normais e no Work. A dica da pasta do Work também foi ajustada para aparecer abaixo do respectivo controle.

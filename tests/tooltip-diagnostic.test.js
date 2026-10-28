@@ -137,3 +137,56 @@ test('Work folder diagnostic recognizes a direct semantic image description with
  const a=s.assessments.find(x=>x.triggerRef===source.element.ref);assert.ok(a);assert.equal(a.linkedTooltipCount,1);assert.ok(!a.reasons.includes('trigger-not-button'));
  assert.equal(d.cleanup,true);assert.ok(!JSON.stringify(d).includes('PRIVATE_'));assert.equal(await p.locator('span[role=img]').getAttribute('tabindex'),null);
 });
+
+
+test('diagnostic reports duplicate IDs, lower space and retained geometry without attributing correction',async t=>{
+ const p=await setup(t);
+ // Start first, then hover: the same ordering as the manual procedure.
+ await p.addScriptTag({path:path.join(root,'diagnostics/tooltip-layout.js')});
+ await p.locator('button[aria-label="共有"]').hover();
+ await p.evaluate(()=>{
+   const b=document.querySelector('button');b.setAttribute('aria-describedby','PRIVATE_DUPLICATE');
+   for(let i=0;i<2;i++){
+     const tip=document.createElement('div');tip.id='PRIVATE_DUPLICATE';tip.role='tooltip';
+     tip.style.cssText='position:absolute;left:100px;top:0;width:100px;height:550px;pointer-events:none;rotate:1deg;scale:1';
+     tip.textContent='PRIVATE_TOOLTIP';document.body.append(tip);
+   }
+ });
+ await p.clock.runFor(10500);
+ let d=await p.evaluate(()=>window.__ctcTooltipDiagnostic);
+ let a=d.samples.at(-1).assessments.find(x=>x.descriptionCount===1);
+ assert.equal(d.assessmentRevision,2);
+ assert.equal(a.ariaResolution[0].matchCount,2);
+ assert.ok(a.reasons.includes('description-id-missing-or-not-unique'));
+ assert.ok(a.reasons.includes('insufficient-space-below'));
+ assert.ok(a.reasons.includes('rotate-not-none'));
+ assert.ok(a.reasons.includes('scale-not-none'));
+ assert.ok(a.geometry[0].availableBelow<a.geometry[0].requiredHeight);
+ assert.equal(a.geometry[0].correctionEvidence.attribution,'unknown-product-private-state');
+ await p.evaluate(()=>{const tip=document.querySelector('[role=tooltip]');tip.style.height='45px';tip.style.top='100px';});
+ await p.clock.runFor(300);
+ d=await p.evaluate(()=>window.__ctcTooltipDiagnostic);
+ a=d.samples.at(-1).assessments.find(x=>x.descriptionCount===1);
+ assert.notEqual(a.geometry[0].deltaFromFirst.height,0);
+ assert.notEqual(a.geometry[0].deltaFromFirst.y,0);
+ await p.mouse.move(700,500);
+ await p.clock.runFor(6000);
+ d=await p.evaluate(()=>window.__ctcTooltipDiagnostic);
+ assert.equal(d.cleanup,true);assert.equal(d.status,'complete');
+ assert.ok(d.samples.some(s=>s.assessments.some(a=>a.reasons.includes('description-id-missing-or-not-unique'))));
+ const saved=JSON.stringify(d);
+ assert.ok(!saved.includes('PRIVATE_'));assert.ok(!saved.includes('private-chat-id'));assert.ok(!saved.includes('https://'));
+ assert.equal(await p.evaluate(()=>typeof window.__ctcTooltipDiagnosticCapture),'undefined');
+ await p.clock.runFor(2000);assert.equal(JSON.stringify(await p.evaluate(()=>window.__ctcTooltipDiagnostic)),saved);
+});
+
+test('manual capture respects preparation and stop clears capture hook',async t=>{
+ const p=await setup(t);
+ await p.addScriptTag({path:path.join(root,'diagnostics/tooltip-layout.js')});
+ assert.deepEqual(await p.evaluate(()=>window.__ctcTooltipDiagnosticCapture()),{status:'preparing',samples:0,cleanup:false});
+ await p.clock.runFor(10100);
+ assert.equal((await p.evaluate(()=>window.__ctcTooltipDiagnosticCapture())).status,'observing');
+ await p.evaluate(()=>window.__ctcTooltipDiagnosticStop());
+ assert.equal(await p.evaluate(()=>typeof window.__ctcTooltipDiagnosticCapture),'undefined');
+ assert.equal(await p.evaluate(()=>window.__ctcTooltipDiagnostic.cleanup),true);
+});

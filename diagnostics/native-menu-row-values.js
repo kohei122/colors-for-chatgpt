@@ -2,7 +2,7 @@
 (()=>{
  'use strict';
  window.__ctcNativeRenameStop?.('replaced');
- const result={diagnostic:'native-menu-row-values-v1',productVersion:'1.0.0',status:'waiting-menu',items:[],cleanup:false};
+ const result={diagnostic:'native-menu-row-values-v1',productVersion:'1.0.1',status:'waiting-menu',items:[],cleanup:false};
  window.__ctcNativeRenameDiagnostic=result;
  let observer,timer,poll,pending,stopped=false;
  const thread=value=>{try{const u=new URL(value,location.href);return u.origin==='https://chatgpt.com'?u.pathname.match(/^\/(?:g\/[^/]+\/)?c\/([a-zA-Z0-9-]+)\/?$/)?.[1]||null:null;}catch{return null;}};

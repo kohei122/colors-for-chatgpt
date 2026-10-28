@@ -11,7 +11,7 @@ test('025 actual extension popup uses only storage permission and targets active
  // A real action popup does not replace the active page tab. Keep that tab active before popup initialization.
  const popup=await ctx.newPage();await p.bringToFront();await popup.goto(`chrome-extension://${extensionId}/popup.html`);
  await popup.waitForFunction(()=>!document.getElementById('individual').disabled);
- assert.equal(await popup.evaluate(()=>chrome.runtime.getManifest().version),'1.0.0');assert.equal(await popup.locator('#app-version').textContent(),'ver 1.0.0');
+ assert.equal(await popup.evaluate(()=>chrome.runtime.getManifest().version),'1.0.1');assert.equal(await popup.locator('#app-version').textContent(),'ver 1.0.1');
  assert.equal(await popup.locator('h1').textContent(),'Colors for ChatGPT');assert.equal(await popup.locator('#individual').isChecked(),true);
  await p.waitForSelector('#marusin-thread-colors',{state:'visible'});
  assert.equal(await popup.evaluate(()=>chrome.permissions.getAll().then(p=>p.permissions.join(','))),'storage');

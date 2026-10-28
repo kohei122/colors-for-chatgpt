@@ -7,7 +7,7 @@ const translated=(l,s)=>messages[l][sourceKey(s)].message;
 test('033 all seven dictionaries are complete, nonempty, match substitution tokens and generated bundle',()=>{
  const keys=Object.keys(messages.en).sort();const ctx={};vm.runInNewContext(fs.readFileSync(path.join(root,'i18n-data.js'),'utf8'),ctx);
  for(const l of langs){assert.deepEqual(Object.keys(messages[l]).sort(),keys);for(const k of keys){const s=messages[l][k].message;assert.ok(s.trim());assert.deepEqual(s.match(/\$\w+\$|\{\w+\}/g)||[],messages.en[k].message.match(/\$\w+\$|\{\w+\}/g)||[]);}assert.equal(JSON.stringify(ctx.ColorsMessages[l]),JSON.stringify(messages[l]));}
- const m=JSON.parse(fs.readFileSync(path.join(root,'manifest.json')));assert.equal(m.default_locale,'en');assert.equal(m.version,'1.0.0');assert.deepEqual(m.permissions,['storage']);
+ const m=JSON.parse(fs.readFileSync(path.join(root,'manifest.json')));assert.equal(m.default_locale,'en');assert.equal(m.version,'1.0.1');assert.deepEqual(m.permissions,['storage']);
  const rows=fs.readFileSync(path.join(root,'translations.tsv'),'utf8').replace(/^\uFEFF/,'').trim().split(/\r?\n/).filter(r=>r.trim()).map(r=>r.split('|'));assert.ok(rows.every(r=>r.length===7&&r.every(s=>s.trim())));
 });
 async function setup(t,lang,auto='ja'){
@@ -16,13 +16,13 @@ async function setup(t,lang,auto='ja'){
  await p.route('https://chatgpt.com/**',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><html lang="ja"><meta charset=utf-8><title>保存しました - ChatGPT</title><style>body{margin:0}main{height:100dvh}nav a{display:inline-block;padding:10px}button{min-height:30px}</style><nav><div role=group><a href=/c/a><span class=truncate>保存しました</span></a><button aria-label="チャットのアクション" aria-haspopup=menu>…</button></div></nav><main><textarea></textarea></main>'}));
  await p.addInitScript(({lang,auto})=>{
   window.listeners=[];window.data={'thread-colors:v1:language':lang,'thread-colors:v1:display:a':true,'thread-colors:v1:a':{height:88,fontSize:26}};window.saves=0;
-  window.chrome={runtime:{getManifest:()=>({version:'1.0.0'})},i18n:{getMessage:()=>auto},storage:{local:{get:async key=>({[key]:data[key]}),set:async values=>{Object.assign(data,values);const changes=Object.fromEntries(Object.entries(values).map(([k,v])=>[k,{newValue:v}]));listeners.forEach(f=>f(changes,'local'));}},onChanged:{addListener:f=>listeners.push(f)}},tabs:{query:async()=>[{id:1}],sendMessage:async()=>({id:'a',ready:true,individual:true})}};
+  window.chrome={runtime:{getManifest:()=>({version:'1.0.1'})},i18n:{getMessage:()=>auto},storage:{local:{get:async key=>({[key]:data[key]}),set:async values=>{Object.assign(data,values);const changes=Object.fromEntries(Object.entries(values).map(([k,v])=>[k,{newValue:v}]));listeners.forEach(f=>f(changes,'local'));}},onChanged:{addListener:f=>listeners.push(f)}},tabs:{query:async()=>[{id:1}],sendMessage:async()=>({id:'a',ready:true,individual:true})}};
  },{lang,auto});return p;
 }
 for(const lang of langs)test('033 '+lang+' popup, menu, editor, notifications, width and native Japanese rename',async t=>{
  const p=await setup(t,lang);await p.goto('https://fixture/popup.html');await p.waitForFunction(()=>!document.getElementById('enabled').disabled);
  assert.equal(await p.locator('#enabled-label').textContent(),translated(lang,'拡張機能を有効にする'));assert.equal(await p.locator('h1').getAttribute('aria-label'),'Colors for ChatGPT');
- const link=p.getByRole('link',{name:'marusin tools'});assert.equal(await link.getAttribute('href'),'https://chromewebstore.google.com/search/(by%20marusin)?hl=ja&authuser=0');assert.equal(await link.getAttribute('target'),'_blank');assert.equal(await link.getAttribute('rel'),'noopener noreferrer');assert.equal(await p.locator('small').textContent(),'ver 1.0.0');
+ const link=p.getByRole('link',{name:'marusin tools'});assert.equal(await link.getAttribute('href'),'https://chromewebstore.google.com/search/(by%20marusin)?hl=ja&authuser=0');assert.equal(await link.getAttribute('target'),'_blank');assert.equal(await link.getAttribute('rel'),'noopener noreferrer');assert.equal(await p.locator('small').textContent(),'ver 1.0.1');
  await link.focus();assert.equal(await link.evaluate(e=>getComputedStyle(e).textDecorationLine),'underline');assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  await p.goto('https://chatgpt.com/c/a');
  await p.evaluate(()=>{

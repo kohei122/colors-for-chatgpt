@@ -1,4 +1,22 @@
-# Colors for ChatGPT (by marusin) — 1.0.0 公開準備
+# Colors for ChatGPT (by marusin) — 1.0.1 リリース準備
+
+## 1.0.1の変更と確認状況（2026-10-28）
+
+通常チャット／Workの上部tooltipが帯に重なる問題と、Workフォルダーの下側表示を修正しました。旧absolute／専用fixed構造を維持し、操作元・ARIA・構造判定、監視・復元を整理しています。bodyレイアウト・権限・設定項目は変更していません。
+
+最新修正後の通常／Work「…」とWorkフォルダーは、利用者から実機で機能OKとの報告を受領しました。ズーム・キーボード操作など、個別報告のない条件は実機確認済みとは扱いません。将来のすべてのUI変更に対応する保証はありません。
+
+[1.0.1のリリース説明・検証・ZIP情報](RELEASE-1.0.1.md)と[検証記録](VALIDATION.md)を参照してください。ストア共通の更新説明は `store-listing/{ja,en,ko,zh_CN,zh_TW,es,pt_BR}/release-notes-1.0.1.txt` に用意しています。1.0.1は両ストアで未公開です。以下の1.0.0記録は当時の確認状況として保持しています。
+
+## 1.0.0での開発記録：tooltip内部整理（当時の状況）
+
+旧absolute／専用fixedの対応範囲を維持し、操作元・ARIA・構造判定を共通正本へ整理しました。
+表示待ち・補正・中止の管理、例外時の解除、個別animation/transition指定の復元、ID/ARIA競合の再評価を追加しています。
+判定変更時は `python tools/sync-tooltip-policy.py`、整合性確認は同コマンドの `--check` を実行します。
+[設計・検証・実機手順](diagnostics/TOOLTIP-ARCHITECTURE.md)に条件と限界を記録しました。
+関連104件PASS（新規31件含む）。通常／Workの「…」の以前の修正は利用者実機で改善確認済みですが、最新フォルダー修正と今回の内部整理は実機未確認です。
+下記の過去版記録は当時の条件・結果として保持しています。commit・push・ZIP・ストア・LP操作は行っていません。
+
 
 初回正式版向けの番号を1.0.0に更新しました。現在は公開前検証の段階で、ストアへの入力・審査提出・公開は行っていません。検証結果と残る実機確認は [VALIDATION.md](VALIDATION.md) の1.0.0記録を参照してください。既存13テストファイルを実行し、修正後の再実行・分割実行を含む270件の最終結果がPASSしました。初回の失敗や中断も記録しています。
 
@@ -19,7 +37,7 @@ MITライセンスで提供します。全文は [LICENSE](LICENSE) を参照し
 
 ## バージョン・公開素材
 
-製品名は全言語共通の **Colors for ChatGPT (by marusin)**。ポップアップ内のコンパクトなブランドは従来どおり「Colors for ChatGPT」です。フッターの **ver 1.0.0** はchrome.runtime.getManifest().versionから表示します。manifest.jsonとpackage.jsonが現在の版番号を持ち、製品内診断は取得可能ならmanifestの版番号を使用します。内部識別子・storageキー・npm内部名は変更していません。
+製品名は全言語共通の **Colors for ChatGPT (by marusin)**。ポップアップ内のコンパクトなブランドは従来どおり「Colors for ChatGPT」です。フッターの **ver 1.0.1** はchrome.runtime.getManifest().versionから表示します。manifest.jsonとpackage.jsonが現在の版番号を持ち、製品内診断は取得可能ならmanifestの版番号を使用します。内部識別子・storageキー・npm内部名は変更していません。
 
 掲載文はstore-listingの7言語name.txt／summary.txt／description.txt。概要は製品翻訳と一致し、名前変更の日英限定・フォルダ折りたたみ制限も記載しています。翻訳はtranslations.tsvからtools/build-i18n.pyで生成します。過去の版番号や検証記録は書き換えていません。
 
@@ -29,7 +47,7 @@ MITライセンスで提供します。全文は [LICENSE](LICENSE) を参照し
 
 利用者から1.0.0の実Chrome・実ChatGPT確認を受領しました。ver表示、色・サイズの再読込保持、日英の名前変更と再読込反映、日本語IMEの変換確定Enterと次のEnterによる保存、外側クリック・キャンセル、折りたたみ後のタイトル保持、本文入力・送信、画像ビューア・ツールチップ、別タブへの色設定反映を確認済みです。自動テストとは別の確認です。**失敗時の実ChatGPTでの復旧は未確認**として残します。
 
-## 公開用ZIP
+## 1.0.0公開用ZIPの記録
 
 [colors-for-chatgpt-1.0.0.zip](releases/colors-for-chatgpt-1.0.0.zip)（LICENSEを含む20ファイル、69,439 bytes）を作成・検証しました。[内容一覧](releases/colors-for-chatgpt-1.0.0.files.txt)／[SHA-256](releases/colors-for-chatgpt-1.0.0.zip.sha256)。
 

@@ -1,0 +1,3 @@
+1.0.1
+
+Se corrigió un problema por el que la información sobre herramientas de los controles superiores se superponía a la banda de color en los chats normales y en Work. También se mejoró la posición de la información sobre herramientas de la carpeta de Work para que aparezca debajo de su control.

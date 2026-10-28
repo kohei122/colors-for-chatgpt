@@ -247,129 +247,243 @@
       shellNodes.set(el, true);
     }
   }
-  // Place only a currently hovered/focused, ARIA-linked upper tooltip below in the
-  // body portal observed in diagnostics. Keep body containment for fixed UI.
-  let tooltipHover=null, tooltipFocus=null, tooltipTrigger=null, tooltipFrame=0, tooltipCorrection=null;
+  // BEGIN GENERATED TOOLTIP POLICY
+  // Read-only tooltip policy. Generated into content.js and the standalone diagnostic.
+  // Change this source, then run python tools/sync-tooltip-policy.py.
+  function createTooltipPolicy() {
+    const sourceSelector='button,[role="button"],span[role="img"]';
+    const excluded='[hidden],[inert],[aria-hidden="true"],dialog,[role="dialog"],[role="alertdialog"],[role="menu"],article,[data-message-author-role]';
+    const tokens=el=>(el.getAttribute('aria-describedby')||'').trim().split(/\s+/).filter(Boolean);
+    function source(node) {
+      if(!(node instanceof Element))return null;
+      const el=node.closest(sourceSelector);
+      if(!el||!document.body.contains(el)||el.closest(excluded))return null;
+      if(el.matches('span[role="img"]')&&el.parentElement?.closest('button,[role="button"],[aria-describedby]'))return null;
+      return el;
+    }
+    function owners(el) {
+      const result=[el],w=el.parentElement;
+      if(el.matches('button,[role="button"]')&&w?.tagName==='SPAN'&&w.children.length===1&&w.firstElementChild===el&&
+        !w.matches('[tabindex],[contenteditable],[hidden],[inert],[aria-hidden="true"]')&&
+        (!w.hasAttribute('role')||['presentation','none'].includes(w.getAttribute('role')))&&
+        w.querySelectorAll('button,[role="button"],a[href],input,select,textarea,[tabindex],[contenteditable]').length===1)result.push(w);
+      return result;
+    }
+    function resolve(el,barBottom) {
+      const reasons=[],o=owners(el),ids=o.flatMap(tokens),tips=[];
+      if(!el.matches(sourceSelector))reasons.push('trigger-not-button');
+      if(source(el)!==el)reasons.push('excluded-or-conflicting-source');
+      if(!el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}))reasons.push('description-source-not-visible');
+      const b=el.getBoundingClientRect();
+      if(!b.width||!b.height||!Number.isFinite(barBottom)||b.top<barBottom-1||b.bottom>barBottom+96)reasons.push('outside-upper-control-range');
+      if(!ids.length)reasons.push('button-has-no-describedby');
+      if(ids.length>4)reasons.push('description-count-exceeds-four');
+      if(new Set(ids).size!==ids.length)reasons.push('duplicate-description-id');
+      for(const id of ids.slice(0,4)) {
+        const matches=document.querySelectorAll('#'+CSS.escape(id));
+        if(matches.length!==1)reasons.push('description-id-missing-or-not-unique');
+        if(matches[0]?.matches('[role="tooltip"]'))tips.push(matches[0]);
+        if(document.querySelectorAll('[aria-describedby~="'+CSS.escape(id)+'"]').length!==1)reasons.push('competing-description-owner');
+      }
+      if(tips.length!==1)reasons.push('linked-tooltip-count-not-one');
+      const tip=tips.length===1?tips[0]:null;
+      if(tip?.closest(excluded))reasons.push('excluded-tooltip-context');
+      return {source:el,owners:o,ids,tip,rect:b,reasons:[...new Set(reasons)]};
+    }
+    function structures(relation) {
+      const tip=relation.tip;
+      if(!tip)return {absolute:{target:null,reasons:['no-unique-tooltip']},fixed:{target:null,reasons:['no-unique-tooltip']}};
+      const parent=tip.parentElement,portal=parent?.parentElement,root=portal?.parentElement;
+      const css=getComputedStyle(tip),common=[];
+      if(css.display==='none'||css.visibility!=='visible'||Number(css.opacity)===0)common.push('tooltip-style-not-visible');
+      if(css.rotate!=='none')common.push('rotate-not-none');
+      if(css.scale!=='none')common.push('scale-not-none');
+      const a=[...common],f=[...common];
+      if(!tip.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}))f.push('not-visible');
+      if(parent!==document.body&&!(portal===document.body&&getComputedStyle(parent).display==='contents'))a.push('unverified-portal-structure');
+      if(tip.offsetParent!==document.body)a.push('offset-parent-not-body');
+      if(css.position!=='absolute')a.push('position-not-absolute');
+      if(css.pointerEvents!=='none')a.push('pointer-events-not-none');
+      if(relation.ids.length!==1||!parent?.hasAttribute('data-radix-popper-content-wrapper')||parent.children.length!==1||parent.firstElementChild!==tip||
+        !root||root.parentElement!==document.body||root.tagName!=='DIV'||portal.tagName!=='DIV'||parent.querySelectorAll('[role="tooltip"]').length!==1||
+        tip.querySelector('button,a[href],input,select,textarea,[tabindex],[contenteditable],[role="menu"],[role="dialog"]'))f.push('unverified-fixed-portal-structure');
+      if(!f.includes('unverified-fixed-portal-structure')) {
+        const w=getComputedStyle(parent),p=getComputedStyle(portal),r=getComputedStyle(root);
+        if(css.position!=='static'||css.pointerEvents!=='auto'||tip.offsetParent!==parent||w.position!=='fixed'||parent.offsetParent!==portal||
+          p.position!=='fixed'||p.contain!=='layout'||p.pointerEvents!=='none'||portal.offsetParent!==document.body||r.position!=='static')f.push('unsupported-fixed-coordinate-system');
+        for(const el of [parent,portal,root,document.body,document.documentElement]) {
+          const c=getComputedStyle(el);
+          if(c.rotate!=='none'||c.scale!=='none'||c.perspective!=='none'||c.filter!=='none'||
+            (el!==document.body&&(c.overflowX!=='visible'||c.overflowY!=='visible'))||(el!==parent&&c.translate!=='none'))f.push('unsupported-fixed-ancestor-effects');
+          if(c.transform!=='none') {
+            const m=new DOMMatrixReadOnly(c.transform);
+            if(!m.is2D||m.a!==1||m.b!==0||m.c!==0||m.d!==1)f.push('unsupported-fixed-transform');
+          }
+        }
+      }
+      return {absolute:{target:tip,reasons:[...new Set(a)]},fixed:{target:parent,reasons:[...new Set(f)]}};
+    }
+    return {source,owners,tokens,resolve,structures,excluded};
+  }
+  // END GENERATED TOOLTIP POLICY
+  const tooltipPolicy=createTooltipPolicy();
+  // One session per hovered/focused source. Placement adapters never select sources.
+  let tooltipHover=null,tooltipFocus=null,tooltipTrigger=null,tooltipFrame=0,tooltipCorrection=null;
+  let tooltipSession=null,tooltipEpoch=0;
   const tooltipOwnStyles=new WeakMap();
-  function clearTooltipCorrection() {
+  function releaseTooltipStyles() {
     const own=tooltipCorrection;tooltipCorrection=null;
     if(!own)return;
-    for(const [name,entry] of Object.entries(own.properties)) {
-      if(own.el.style.getPropertyValue(name)!==entry.written||own.el.style.getPropertyPriority(name)!=='important')continue;
-      if(entry.value)own.el.style.setProperty(name,entry.value,entry.priority);
-      else own.el.style.removeProperty(name);
+    try {own.resize?.disconnect();}catch {}
+    for(const part of [own,...own.parts]) {
+      for(const [name,entry] of Object.entries(part.properties)) {
+        try {
+          if(part.el.style.getPropertyValue(name)!==entry.written||part.el.style.getPropertyPriority(name)!=='important')continue;
+          if(entry.value)part.el.style.setProperty(name,entry.value,entry.priority);
+          else part.el.style.removeProperty(name);
+        }catch {} // Continue releasing the other properties/elements after a failure.
+      }
+      try{tooltipOwnStyles.set(part.el,part.el.getAttribute('style'));}catch{}
     }
-    tooltipOwnStyles.set(own.el,own.el.getAttribute('style'));
   }
-  function tooltipStyle(state,name,value) {
-    let entry=state.properties[name];
-    if(!entry)entry=state.properties[name]={value:state.el.style.getPropertyValue(name),priority:state.el.style.getPropertyPriority(name)};
-    if(entry.written===value&&state.el.style.getPropertyValue(name)===value)return false;
-    state.el.style.setProperty(name,value,'important');entry.written=state.el.style.getPropertyValue(name);return true;
+  function endTooltipSession(status,reason) {
+    ++tooltipEpoch;cancelAnimationFrame(tooltipFrame);tooltipFrame=0;
+    if(tooltipSession){clearTimeout(tooltipSession.timer);try{tooltipSession.watch?.disconnect();}catch{}tooltipSession.status=status;tooltipSession.reason=reason;}
+    releaseTooltipStyles();
+  }
+  function clearTooltipCorrection(){endTooltipSession('idle','inactive');}
+  function stopTooltip(reason){endTooltipSession('stopped',reason);}
+  function beginTooltipSession() {
+    const epoch=++tooltipEpoch;
+    tooltipSession={epoch,status:'waiting',source:tooltipTrigger,ids:[],updates:[],totalUpdates:0,timer:0,watch:null};
+    tooltipSession.watch=new MutationObserver(tooltipMutations);
+    tooltipSession.watch.observe(document.body,{subtree:true,attributes:true,attributeOldValue:true,attributeFilter:['id','inert','aria-describedby']});
+    tooltipSession.timer=setTimeout(()=>{
+      if(tooltipSession?.epoch===epoch&&tooltipSession.status==='waiting')stopTooltip('display-timeout');
+    },15000);
+  }
+  function waitTooltip(reason) {
+    releaseTooltipStyles();
+    if(tooltipSession.status!=='waiting') {
+      const epoch=tooltipEpoch;clearTimeout(tooltipSession.timer);
+      tooltipSession.timer=setTimeout(()=>{if(epoch===tooltipEpoch&&tooltipSession.status==='waiting')stopTooltip('display-timeout');},15000);
+    }
+    tooltipSession.status='waiting';tooltipSession.reason=reason;
+  }
+  function tooltipStyle(part,name,value) {
+    let e=part.properties[name];
+    if(!e)e=part.properties[name]={value:part.el.style.getPropertyValue(name),priority:part.el.style.getPropertyPriority(name)};
+    if(e.written===value&&part.el.style.getPropertyValue(name)===value&&part.el.style.getPropertyPriority(name)==='important')return false;
+    part.el.style.setProperty(name,value,'important');e.written=part.el.style.getPropertyValue(name);
+    tooltipOwnStyles.set(part.el,part.el.getAttribute('style'));return true;
+  }
+  function tooltipOwnershipIntact(state) {
+    return [state,...state.parts].every(p=>Object.entries(p.properties).every(([n,e])=>
+      p.el.style.getPropertyValue(n)===e.written&&p.el.style.getPropertyPriority(n)==='important'));
   }
   function requestTooltipCheck() {
-    if(!tooltipTrigger||tooltipFrame)return;
-    tooltipFrame=requestAnimationFrame(()=>{tooltipFrame=0;correctTooltip();});
+    if(!tooltipTrigger||tooltipFrame||tooltipSession?.status==='stopped')return;
+    try {
+      if(!tooltipSession||tooltipSession.status==='idle')beginTooltipSession();
+      const epoch=tooltipEpoch;
+      tooltipFrame=requestAnimationFrame(()=>{
+        if(epoch!==tooltipEpoch)return;tooltipFrame=0;
+        try {correctTooltip();}catch {stopTooltip('exception');}
+      });
+    }catch {stopTooltip('session-exception');}
   }
-  function tooltipSource(node) {
-    if(!(node instanceof Element))return null;
-    // A description source need not be clickable. Only the observed semantic
-    // span is provisionally tracked; correction still requires its own ARIA link.
-    const button=node.closest('button,[role="button"],span[role="img"]');
-    if(button?.matches('span[role="img"]')&&button.parentElement?.closest('button,[role="button"],[aria-describedby]'))return null;
-    if(!button||button.closest('dialog,[role="dialog"],[role="alertdialog"],[role="menu"],article,[data-message-author-role]')||!document.body.contains(button))return null;
-    return button;
-  }
+  function tooltipSource(node){return tooltipPolicy.source(node);}
+  function tooltipDescriptionIds(source){return tooltipPolicy.owners(source).flatMap(tooltipPolicy.tokens);}
   function selectTooltipTrigger() {
     const next=tooltipHover||tooltipFocus;
-    if(next!==tooltipTrigger){clearTooltipCorrection();tooltipTrigger=next;}
+    if(next!==tooltipTrigger){clearTooltipCorrection();tooltipTrigger=next;tooltipSession=null;}
     requestTooltipCheck();
   }
-  function tooltipOver(e) {tooltipHover=tooltipSource(e.target);selectTooltipTrigger();}
-  function tooltipOut(e) {if(e.relatedTarget instanceof Node&&tooltipHover?.contains(e.relatedTarget))return;tooltipHover=null;selectTooltipTrigger();}
-  function tooltipFocusIn(e) {tooltipHover=null;tooltipFocus=tooltipSource(e.target);selectTooltipTrigger();}
-  function tooltipFocusOut(e) {if(e.relatedTarget instanceof Node&&tooltipFocus?.contains(e.relatedTarget))return;tooltipFocus=null;selectTooltipTrigger();}
-  function tooltipDescriptionIds(button) {
-    const owners=[button],wrapper=button.parentElement;
-    // Observed Work structure only: immediate span with this button as its sole
-    // element child. Never walk further ancestors or accept arbitrary spans.
-    if(button.matches('button,[role="button"]')&&wrapper?.tagName==='SPAN'&&wrapper.children.length===1&&wrapper.firstElementChild===button&&
-      !wrapper.matches('[tabindex],[contenteditable],[hidden],[inert],[aria-hidden="true"]')&&
-      (!wrapper.hasAttribute('role')||['presentation','none'].includes(wrapper.getAttribute('role')))&&
-      wrapper.querySelectorAll('button,[role="button"],a[href],input,select,textarea,[tabindex],[contenteditable]').length===1)owners.push(wrapper);
-    const ids=owners.flatMap(owner=>(owner.getAttribute('aria-describedby')||'').trim().split(/\s+/).filter(Boolean));
-    if(!ids.length||ids.length>4||new Set(ids).size!==ids.length)return [];
-    return ids;
+  function tooltipOver(e){tooltipHover=tooltipSource(e.target);selectTooltipTrigger();}
+  function tooltipOut(e){if(e.relatedTarget instanceof Node&&tooltipHover?.contains(e.relatedTarget))return;tooltipHover=null;selectTooltipTrigger();}
+  function tooltipFocusIn(e){tooltipHover=null;tooltipFocus=tooltipSource(e.target);selectTooltipTrigger();}
+  function tooltipFocusOut(e){if(e.relatedTarget instanceof Node&&tooltipFocus?.contains(e.relatedTarget))return;tooltipFocus=null;selectTooltipTrigger();}
+  // Pure viewport-coordinate calculation; no style/observer ownership here.
+  function tooltipPlacement(kind,b,r,state,edge,width,height) {
+    const available=width-2*edge,maxTop=height-edge-r.height;
+    if(!r.width||!r.height||r.width>available+(kind==='absolute'?.5:0)||maxTop<b.bottom+6)return null;
+    const nativeX=r.left-state.shiftX,nativeY=r.top-state.shiftY;
+    const y=kind==='fixed'?b.bottom+6:nativeY>=b.bottom?Math.min(nativeY,maxTop):b.bottom+6;
+    const x=Math.max(edge,Math.min(nativeX,width-edge-r.width));
+    return {x:Math.round((x-nativeX)*100)/100,y:Math.round((y-nativeY)*100)/100};
+  }
+  function prepareTooltipState(kind,target,relation) {
+    const state={el:target,tip:relation.tip,kind,properties:{},parts:[],shiftX:0,shiftY:0,wrapped:false,resize:null};
+    tooltipCorrection=state; // Own partial writes before any operation can throw.
+    if(kind==='fixed') {
+      for(const el of [target,relation.tip]) {
+        const part=el===target?state:{el,properties:{}};
+        if(el!==target)state.parts.push(part);
+        // Only touch these longhands; preserve all original duration/timing/etc.
+        tooltipStyle(part,'animation-name','none');tooltipStyle(part,'transition-property','none');
+      }
+      for(const el of relation.tip.querySelectorAll('[data-radix-popper-arrow]')) {
+        const part={el,properties:{}};state.parts.push(part);tooltipStyle(part,'visibility','hidden');
+      }
+    }
+    const epoch=tooltipEpoch;
+    state.resize=new ResizeObserver(()=>{if(epoch===tooltipEpoch)requestTooltipCheck();});
+    state.resize.observe(relation.tip);state.resize.observe(relation.source);
+    return state;
   }
   function correctTooltip() {
-    const button=tooltipTrigger;
+    const source=tooltipTrigger;
     const active=enabledReady&&chatReady&&individualReady&&individual&&!loading&&enabled&&id&&!modalVisible;
-    if(!active||!button?.isConnected||tooltipSource(button)!==button){clearTooltipCorrection();return;}
-    const ids=tooltipDescriptionIds(button);
-    if(!ids.length||ids.length>4){clearTooltipCorrection();return;}
-    const tips=[];
-    // Exact ID queries only while a trigger is active; duplicate DOM IDs are
-    // ambiguous even when getElementById would return a first match.
-    for(const key of ids) {
-      const matches=document.querySelectorAll('#'+CSS.escape(key));
-      if(matches.length!==1){clearTooltipCorrection();return;}
-      if(matches[0].matches('[role="tooltip"]'))tips.push(matches[0]);
+    if(!active){clearTooltipCorrection();return;}
+    if(!source?.isConnected||tooltipSource(source)!==source){stopTooltip('invalid-source');return;}
+    const relation=tooltipPolicy.resolve(source,$('.bar').getBoundingClientRect().bottom);
+    tooltipSession.ids=relation.ids.slice(0,4);
+    if(relation.reasons.length) {
+      waitTooltip('unresolved');return;
     }
-    if(tips.length!==1){clearTooltipCorrection();return;}
-    // For the new image-description path, reject competing reference owners
-    // and non-visible sources. These bounded queries run only for an active tip.
-    if(button.matches('span[role="img"]')&&(
-      button.closest('[hidden],[inert],[aria-hidden="true"]')||
-      !button.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})||
-      ids.some(key=>document.querySelectorAll('[aria-describedby~="'+CSS.escape(key)+'"]').length!==1)
-    )){clearTooltipCorrection();return;}
-    const tip=tips[0],parent=tip.parentElement;
-    if(tooltipCorrection&&tooltipCorrection.el!==tip)clearTooltipCorrection();
-    // The observed portal is body > display:contents > tooltip. No arbitrary
-    // clipped/transformed ancestor chain, modal, generated class or asset match.
-    if(parent!==document.body&&!(parent?.parentElement===document.body&&getComputedStyle(parent).display==='contents')){clearTooltipCorrection();return;}
-    if(tip.closest('[hidden],[inert],[aria-hidden="true"],dialog,[role="dialog"],[role="alertdialog"],[role="menu"],article,[data-message-author-role]')){clearTooltipCorrection();return;}
-    const css=getComputedStyle(tip),own=tooltipCorrection;
-    if(own&&Object.entries(own.properties).some(([name,e])=>tip.style.getPropertyValue(name)!==e.written||tip.style.getPropertyPriority(name)!=='important')) {
-      clearTooltipCorrection();return; // Preserve a newer page-owned value.
-    }
-    if(tip.offsetParent!==document.body||css.position!=='absolute'||css.pointerEvents!=='none'||css.display==='none'||css.visibility!=='visible'||Number(css.opacity)===0||
-      (!own&&css.translate!=='none')||css.rotate!=='none'||css.scale!=='none') {clearTooltipCorrection();return;}
-    const bar=$('.bar').getBoundingClientRect(),b=button.getBoundingClientRect();
-    let r=tip.getBoundingClientRect();
-    if(!b.width||!b.height||b.top<bar.bottom-1||b.bottom>bar.bottom+96||!r.width||!r.height){clearTooltipCorrection();return;}
-    const state=own||{el:tip,properties:{},shiftX:0,shiftY:0,wrapped:false};
-    const edge=Math.max(4,cfg.border);
-    const available=innerWidth-2*edge;
-    if(r.width>available||state.wrapped) {
-      tooltipCorrection=state;state.wrapped=true;
-      let changed=false;
-      for(const [name,value] of Object.entries({'max-width':available+'px','min-width':'0px','box-sizing':'border-box','white-space':'normal','overflow-wrap':'anywhere','height':'auto','max-height':'none'}))
-        changed=tooltipStyle(state,name,value)||changed;
-      // One necessary read after wrapping; subsequent callbacks make no writes.
+    const shapes=tooltipPolicy.structures(relation);
+    const kind=!shapes.fixed.reasons.length?'fixed':!shapes.absolute.reasons.length?'absolute':null;
+    if(!kind){waitTooltip('unresolved');return;}
+    const target=shapes[kind].target,tip=relation.tip;
+    if(tooltipCorrection&&(tooltipCorrection.el!==target||tooltipCorrection.tip!==tip||tooltipCorrection.kind!==kind))releaseTooltipStyles();
+    if(tooltipCorrection&&!tooltipOwnershipIntact(tooltipCorrection)){stopTooltip('page-style-overwrite');return;}
+    const css=getComputedStyle(tip),targetCss=getComputedStyle(target);
+    if((!tooltipCorrection&&targetCss.translate!=='none')||(kind==='fixed'&&css.translate!=='none')){waitTooltip('not-placeable');return;}
+    let state=tooltipCorrection||prepareTooltipState(kind,target,relation);
+    let r=tip.getBoundingClientRect();const edge=Math.max(4,cfg.border),available=innerWidth-2*edge;
+    if(kind==='absolute'&&(r.width>available||state.wrapped)) {
+      state.wrapped=true;let changed=false;
+      for(const [n,v] of Object.entries({'max-width':available+'px','min-width':'0px','box-sizing':'border-box','white-space':'normal','overflow-wrap':'anywhere','height':'auto','max-height':'none'}))changed=tooltipStyle(state,n,v)||changed;
       if(changed)r=tip.getBoundingClientRect();
     }
-    const nativeTop=r.top-state.shiftY,nativeLeft=r.left-state.shiftX;
-    const maxTop=innerHeight-edge-r.height;
-    if(maxTop<b.bottom+6||r.width>available+.5){clearTooltipCorrection();return;}
-    const destination=nativeTop>=b.bottom?Math.min(nativeTop,maxTop):b.bottom+6;
-    const left=Math.max(edge,Math.min(nativeLeft,innerWidth-edge-r.width));
-    const dx=Math.round((left-nativeLeft)*100)/100,dy=Math.round((destination-nativeTop)*100)/100;
-    if(!dx&&!dy&&!state.wrapped){clearTooltipCorrection();return;}
-    tooltipStyle(state,'translate',`${dx}px ${dy}px`);
-    state.shiftX=dx;state.shiftY=dy;state.signature=tip.getAttribute('style');tooltipOwnStyles.set(tip,state.signature);tooltipCorrection=state;
-  }
-
-  function tooltipMutations(records) {
-    if(!tooltipTrigger)return;
-    const tip=tooltipCorrection?.el, descriptionIds=tooltipDescriptionIds(tooltipTrigger);
-    for(const r of records) {
-      if(r.type==='attributes') {
-        if(r.attributeName==='style'&&tooltipOwnStyles.has(r.target)&&r.target.getAttribute('style')===tooltipOwnStyles.get(r.target))continue;
-        const linked=descriptionIds.includes(r.target.id);
-        if(r.target===tooltipTrigger||linked||r.target===document.body||layoutAncestors.has(r.target)||r.target.contains(tooltipTrigger)||(tip&&r.target.contains(tip))){requestTooltipCheck();return;}
-      } else if(r.target===tooltipTrigger.parentElement||r.target.contains(tooltipTrigger)||r.target===document.body||r.target.parentElement===document.body||!tooltipTrigger.isConnected||tip&&!tip.isConnected){requestTooltipCheck();return;}
+    const plan=tooltipPlacement(kind,relation.rect,r,state,edge,innerWidth,innerHeight);
+    if(!plan){waitTooltip('not-placeable');return;}
+    if(kind==='absolute'&&!plan.x&&!plan.y&&!state.wrapped){waitTooltip('not-placeable');return;}
+    if(state.shiftX!==plan.x||state.shiftY!==plan.y) {
+      const now=performance.now();tooltipSession.updates=tooltipSession.updates.filter(t=>now-t<1000);
+      if(tooltipSession.updates.length>=12||tooltipSession.totalUpdates>=120){stopTooltip('continuous-repositioning');return;}
+      tooltipSession.updates.push(now);tooltipSession.totalUpdates++;
     }
+    tooltipStyle(state,'translate',`${plan.x}px ${plan.y}px`);state.shiftX=plan.x;state.shiftY=plan.y;
+    tooltipSession.status='correcting';clearTimeout(tooltipSession.timer);
+  }
+  function tooltipMutations(records) {
+    if(!tooltipTrigger||tooltipSession?.status==='stopped')return;
+    try {
+      const source=tooltipTrigger,own=tooltipCorrection,ids=tooltipSession?.ids||tooltipDescriptionIds(source);
+      const selector=ids.slice(0,4).flatMap(id=>['#'+CSS.escape(id),'[aria-describedby~="'+CSS.escape(id)+'"]']).join(',');
+      const related=node=>node instanceof Element&&(node===source||node.contains(source)||
+        (own&&(node===own.tip||node.contains(own.tip)||own.el.contains(node)))||
+        (selector&&(node.matches(selector)||node.querySelector(selector))));
+      for(const r of records) {
+        if(r.type==='attributes') {
+          if(r.attributeName==='style'&&tooltipOwnStyles.has(r.target)&&r.target.getAttribute('style')===tooltipOwnStyles.get(r.target))continue;
+          if(r.target===source||r.target.contains(source)||r.target===document.body||layoutAncestors.has(r.target)||
+            (own&&(r.target===own.tip||r.target.contains(own.tip)||own.el.contains(r.target)))||
+            (['id','aria-describedby'].includes(r.attributeName)&&[r.oldValue||'',r.target.getAttribute(r.attributeName)||''].some(v=>v.split(/\s+/).some(id=>ids.includes(id))))) {requestTooltipCheck();return;}
+        }else if(!source.isConnected||own&&!own.tip.isConnected||r.target===source||r.target.contains(source)||(own&&(r.target.contains(own.tip)||own.el.contains(r.target)))||[...r.addedNodes,...r.removedNodes].some(related)){requestTooltipCheck();return;}
+      }
+    }catch {stopTooltip('observer-exception');}
   }
   document.addEventListener('pointerover',tooltipOver,true);
   document.addEventListener('pointerout',tooltipOut,true);
@@ -560,6 +674,7 @@
     const path = location.pathname;
     if (path === lastPath) { title(); lastDocumentTitle = document.title; return; }
     navigationRevision++;
+    clearTooltipCorrection();tooltipHover=null;tooltipFocus=null;tooltipTrigger=null;
     stopPerf('navigation');
     setRenameProgress(false);
     failedDraft=null;$('.failed-draft').hidden=true;$('.draft-value').value='';
@@ -720,7 +835,7 @@
     host.setAttribute('data-rename-diagnostic',JSON.stringify(diagnostic));
   }
   function startTrace() {
-    diagnostic={version:chrome.runtime?.getManifest?.().version||'1.0.0',diagnosticSchema:5,events:[],truncated:false};diagnosticStart=performance.now();
+    diagnostic={version:chrome.runtime?.getManifest?.().version||'1.0.1',diagnosticSchema:5,events:[],truncated:false};diagnosticStart=performance.now();
     trace('start');let previous='';
     const frame=()=>{
       const ds=[...document.querySelectorAll(dialogSelector)];
@@ -976,7 +1091,7 @@
     } catch(error) {
       endEdit();renameNotice('');title();
       // Failure evidence is developer-only; no product warning or draft panel.
-      try {diagnostic={version:chrome.runtime?.getManifest?.().version||'1.0.0',diagnosticSchema:5,events:[],truncated:false};diagnosticStart=performance.now();trace('failure',{stage:'edit-start',submitted:false,confirmed:false});trace('finished',{busy:renaming,editing:Boolean(editSession),activeWaits:0,observerActive:false,overallTimerActive:false,quiet:Boolean(quietRename)});}catch{}
+      try {diagnostic={version:chrome.runtime?.getManifest?.().version||'1.0.1',diagnosticSchema:5,events:[],truncated:false};diagnosticStart=performance.now();trace('failure',{stage:'edit-start',submitted:false,confirmed:false});trace('finished',{busy:renaming,editing:Boolean(editSession),activeWaits:0,observerActive:false,overallTimerActive:false,quiet:Boolean(quietRename)});}catch{}
     }
   }
   async function saveTitle() {

@@ -1,12 +1,20 @@
 """Build an allowlisted runtime ZIP; never package the project directory recursively."""
 from pathlib import Path
-import hashlib, json, re, tempfile, zipfile
+import hashlib, json, re, tempfile, zipfile, subprocess, sys
 ROOT = Path(__file__).resolve().parents[1]
 LOCALES = ['en', 'ja', 'ko', 'zh_CN', 'zh_TW', 'es', 'pt_BR']
 FILES = ['LICENSE', 'manifest.json', 'core.js', 'content.js', 'i18n.js', 'i18n-data.js',
          'popup.html', 'popup.css', 'popup.js'] + [f'_locales/{x}/messages.json' for x in LOCALES] + [f'icons/icon{x}.png' for x in [16,32,48,128]]
 m = json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
-assert m['version'] == '1.0.0'
+assert re.fullmatch(r'\d+\.\d+\.\d+', m['version'])
+version=m['version']
+assert json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version']==version
+lock=json.loads((ROOT/'package-lock.json').read_text(encoding='utf-8'))
+assert lock['version']==lock['packages']['']['version']==version
+subprocess.run([sys.executable,str(ROOT/'tools/sync-tooltip-policy.py'),'--check'],check=True)
+policy=(ROOT/'tools/tooltip-policy.js').read_text(encoding='utf-8').rstrip()
+embedded='\n'.join('  '+line if line else '' for line in policy.splitlines())
+assert embedded in (ROOT/'content.js').read_text(encoding='utf-8')
 assert m['name'] == 'Colors for ChatGPT (by marusin)'
 assert len(FILES) == len(set(FILES)) == 20
 refs = list(m['icons'].values()) + list(m['action']['default_icon'].values()) + [m['action']['default_popup']]
@@ -34,7 +42,7 @@ data = buffer.getvalue()
 if archive.exists():
     assert archive.read_bytes() == data, 'Existing ZIP differs: preserve it and choose a new artifact name.'
 else: archive.write_bytes(data)
-extracted = Path(tempfile.mkdtemp(prefix='colors-for-chatgpt-1.0.0-package-'))
+extracted = Path(tempfile.mkdtemp(prefix=f'colors-for-chatgpt-{version}-package-'))
 with zipfile.ZipFile(archive) as z:
     assert z.testzip() is None
     assert z.namelist() == sorted(FILES)
@@ -47,8 +55,8 @@ with zipfile.ZipFile(archive) as z:
 sha = hashlib.sha256(data).hexdigest()
 (archive.with_suffix('.zip.sha256')).write_text(f'{sha}  {archive.name}\n', encoding='utf-8')
 (archive.with_suffix('.files.txt')).write_text('\n'.join(sorted(FILES))+'\n', encoding='utf-8')
-report = {'version':m['version'], 'archive':str(archive), 'sha256':sha, 'bytes':len(data),
+report = {'embeddedPolicyCheck':'PASS','policySourceSha256':hashlib.sha256(policy.encode()).hexdigest(),'version':m['version'], 'archive':str(archive), 'sha256':sha, 'bytes':len(data),
           'fileCount':len(FILES), 'extractedDirectory':str(extracted), 'referenceCheck':'PASS',
           'crcAndSourceEquality':'PASS', 'files':[{'path':x,'sha256':hashlib.sha256((ROOT/x).read_bytes()).hexdigest()} for x in sorted(FILES)]}
-(out/'package-1.0.0.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(out/f'package-{version}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in report.items() if k!='files'},ensure_ascii=False))

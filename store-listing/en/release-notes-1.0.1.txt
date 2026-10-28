@@ -1,0 +1,3 @@
+1.0.1
+
+Fixed an issue where tooltips for top controls in regular chats and Work overlapped the colored banner. Improved positioning so the Work folder tooltip also appears below its control.

@@ -1,4 +1,27 @@
+## 1.0.1 リリース準備（2026-10-28）
+
+- 製品main、開始HEAD `1ac3d328785930b68606c790be688695790ba367`。既存未commitのtooltip製品修正・診断・fixture・テスト・設計記録を保持してリリース対象に含めた。manifest/package/lock・現行診断・版表示テストを1.0.1へ整合。過去記録は当時の状態として保持。
+- `node --test --test-concurrency=2 tests/*.test.js`：15ファイル、335件PASS、失敗0・キャンセル0・スキップ0（427,575ms）。今回の全件実行で失敗・再実行なし。検証用Playwright ChromiumをCHROMIUM_EXECUTABLEで指定。旧absolute、fixed、フォルダー、ARIA所有者、遅延・競合・交換、hover/focus、OFF・遷移・削除・例外、ページ上書き・個別animation/transition復元、更新上限・非累積・静止後書込み、除外対象、既存機能・翻訳・性能を含む模擬回帰。
+- JS/CJS 29ファイルのnode --check、tools Python AST、manifest/package/lock/7言語JSON、翻訳再生成一致、7言語キー・置換値、参照整合、tooltip生成コード一致、git diff --check：PASS。7言語更新説明はUTF-8・版表記・内容対応を確認。ネイティブ話者レビューなし。
+- `python tools/package-release.py`：20ファイル、71,501 bytes、SHA-256 `e1fced567f14705c67c50878207c9a33ac500f18396eb1a0b68dd896dea43a38`。LICENSE、manifest直下、依存参照、CRC、元ファイル完全一致、生成コード同梱がPASS。tools/tooltip-policy.jsは開発時正本であり、content.jsへ埋め込んだコードが製品に含まれる。梱包前の生成コード検証を必須化した。
+- `node tools/verify-package.cjs`：別の一時フォルダへ展開したZIPから拡張を読み込み、製品名・1.0.1・4アイコン・7言語popup・storage権限・content script・fixedボタン/フォルダーの下側表示とhover終了復元・SHA-256を確認、PASS。Windows CRLFも正規化して生成元ハッシュを比較するよう検証スクリプトを整備し、再確認PASS。実ChatGPT接続ではない。
+- 1.0.0 ZIPは69,439 bytes、SHA-256 `02639e4fcfc9a79dc293eaf628d814aad204bcc12171937f7ad27d4ff625fae9` のまま保持。ZIP・ログ・検証画像/JSONは既存Git除外方針を維持。
+- 利用者実機：最新修正後の通常／Work「…」・Workフォルダーは機能OKの報告を受領。ズーム・キーボード操作等の個別報告がない条件と、今回のZIP展開物そのものの実ChatGPT確認は未確認。以下の開発時の未確認記録は履歴であり、この追記が最新状況。
+- LP：main `a1245350b7626ba28a5fd0eb223af886948f6d24`、変更なし。catalog（6製品）・news（15記事）検証、Wix catalog/newsテスト、diff --check：PASS。日英・機能・制限・権限・ストアリンク・SEO/構造化データは変更不要。News追加・共通LP構造/CMS追加・Wix手作業は不要。
+- 両ストアの実ページ取得は失敗し、現在版の独立再確認はできず。1.0.1は両ストア未公開として記載。ローカルと取得したorigin/mainに.github workflowなし。Actions追加・変更・手動起動なし。GitHubへの通常pushと、Wix反映・ストア公開は別。ストア入力/提出/公開・GitHub Release作成は行わない。
+- 詳細・ファイル一覧・実機手順は [RELEASE-1.0.1.md](RELEASE-1.0.1.md)。
+
 ## 1.0.0 レビュー依頼のストア共通化（2026-10-24）
+
+## ローカル開発中：tooltip内部整理（1.0.0据え置き）
+
+旧absolute／専用fixedの対応範囲を維持し、操作元・ARIA・構造判定を共通正本へ整理しました。
+表示待ち・補正・中止の管理、例外時の解除、個別animation/transition指定の復元、ID/ARIA競合の再評価を追加しています。
+判定変更時は `python tools/sync-tooltip-policy.py`、整合性確認は同コマンドの `--check` を実行します。
+[設計・検証・実機手順](diagnostics/TOOLTIP-ARCHITECTURE.md)に条件と限界を記録しました。
+関連104件PASS（新規31件含む）。通常／Workの「…」の以前の修正は利用者実機で改善確認済みですが、最新フォルダー修正と今回の内部整理は実機未確認です。
+下記の過去版記録は当時の条件・結果として保持しています。commit・push・ZIP・ストア・LP操作は行っていません。
+
 
 - 開始時はColors・LPとも既存差分なし。7言語のdescription.txt末尾2文を、ストア名を含まない評価・レビュー依頼の1文へ変更。日本語は指定文と一致。他6言語も既存の依頼表現を維持し、ストア名と星だけの評価に関する説明のみ削除した。
 - store-listing/REVIEW.txtへ、Chrome / Edgeで共用する掲載文の運用ルール4項目を追加。過去記録は保持。

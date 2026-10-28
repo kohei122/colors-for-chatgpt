@@ -7,7 +7,7 @@
  const thread=value=>{try{const u=new URL(value,location.href);return u.origin==='https://chatgpt.com'?u.pathname.match(/^\/(?:g\/[^/]+\/)?c\/([a-zA-Z0-9-]+)\/?$/)?.[1]||null:null;}catch{return null;}};
  const current=thread(location.href),refs=new WeakMap();let nextRef=0,observer,timer,pending=0,poll,stopped=false,menuElement=null,selected=false;
 
- const result={diagnostic:'native-rename-structure-v2',productVersion:'1.0.0',htmlLanguage:document.documentElement.lang,stages:[],status:'waiting-menu',samples:0,cleanup:false};
+ const result={diagnostic:'native-rename-structure-v2',productVersion:'1.0.1',htmlLanguage:document.documentElement.lang,stages:[],status:'waiting-menu',samples:0,cleanup:false};
  window.__ctcNativeRenameDiagnostic=result;
  const ref=e=>{if(!e)return null;if(!refs.has(e))refs.set(e,++nextRef);return refs.get(e);};
  let links=current?[...document.querySelectorAll('a[href*="/c/"]')].filter(e=>!e.closest('main,article,[data-message-author-role]')&&thread(e.href)===current):[];

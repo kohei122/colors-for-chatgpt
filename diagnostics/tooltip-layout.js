@@ -1,13 +1,93 @@
-/* Read-only Console diagnostic for 1.0.0. No page/style/input/storage writes,
+/* Read-only Console diagnostic for 1.0.1. No page/style/input/storage writes,
  * clicks, network, text/HTML collection or clipboard calls. Run once per button.
  * Wait 10 seconds, then observe for 6 seconds. Results remain in
  * window.__ctcTooltipDiagnostic; copy them manually after completion.
  */
 (() => {
   'use strict';
+  // BEGIN GENERATED TOOLTIP POLICY
+  // Read-only tooltip policy. Generated into content.js and the standalone diagnostic.
+  // Change this source, then run python tools/sync-tooltip-policy.py.
+  function createTooltipPolicy() {
+    const sourceSelector='button,[role="button"],span[role="img"]';
+    const excluded='[hidden],[inert],[aria-hidden="true"],dialog,[role="dialog"],[role="alertdialog"],[role="menu"],article,[data-message-author-role]';
+    const tokens=el=>(el.getAttribute('aria-describedby')||'').trim().split(/\s+/).filter(Boolean);
+    function source(node) {
+      if(!(node instanceof Element))return null;
+      const el=node.closest(sourceSelector);
+      if(!el||!document.body.contains(el)||el.closest(excluded))return null;
+      if(el.matches('span[role="img"]')&&el.parentElement?.closest('button,[role="button"],[aria-describedby]'))return null;
+      return el;
+    }
+    function owners(el) {
+      const result=[el],w=el.parentElement;
+      if(el.matches('button,[role="button"]')&&w?.tagName==='SPAN'&&w.children.length===1&&w.firstElementChild===el&&
+        !w.matches('[tabindex],[contenteditable],[hidden],[inert],[aria-hidden="true"]')&&
+        (!w.hasAttribute('role')||['presentation','none'].includes(w.getAttribute('role')))&&
+        w.querySelectorAll('button,[role="button"],a[href],input,select,textarea,[tabindex],[contenteditable]').length===1)result.push(w);
+      return result;
+    }
+    function resolve(el,barBottom) {
+      const reasons=[],o=owners(el),ids=o.flatMap(tokens),tips=[];
+      if(!el.matches(sourceSelector))reasons.push('trigger-not-button');
+      if(source(el)!==el)reasons.push('excluded-or-conflicting-source');
+      if(!el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}))reasons.push('description-source-not-visible');
+      const b=el.getBoundingClientRect();
+      if(!b.width||!b.height||!Number.isFinite(barBottom)||b.top<barBottom-1||b.bottom>barBottom+96)reasons.push('outside-upper-control-range');
+      if(!ids.length)reasons.push('button-has-no-describedby');
+      if(ids.length>4)reasons.push('description-count-exceeds-four');
+      if(new Set(ids).size!==ids.length)reasons.push('duplicate-description-id');
+      for(const id of ids.slice(0,4)) {
+        const matches=document.querySelectorAll('#'+CSS.escape(id));
+        if(matches.length!==1)reasons.push('description-id-missing-or-not-unique');
+        if(matches[0]?.matches('[role="tooltip"]'))tips.push(matches[0]);
+        if(document.querySelectorAll('[aria-describedby~="'+CSS.escape(id)+'"]').length!==1)reasons.push('competing-description-owner');
+      }
+      if(tips.length!==1)reasons.push('linked-tooltip-count-not-one');
+      const tip=tips.length===1?tips[0]:null;
+      if(tip?.closest(excluded))reasons.push('excluded-tooltip-context');
+      return {source:el,owners:o,ids,tip,rect:b,reasons:[...new Set(reasons)]};
+    }
+    function structures(relation) {
+      const tip=relation.tip;
+      if(!tip)return {absolute:{target:null,reasons:['no-unique-tooltip']},fixed:{target:null,reasons:['no-unique-tooltip']}};
+      const parent=tip.parentElement,portal=parent?.parentElement,root=portal?.parentElement;
+      const css=getComputedStyle(tip),common=[];
+      if(css.display==='none'||css.visibility!=='visible'||Number(css.opacity)===0)common.push('tooltip-style-not-visible');
+      if(css.rotate!=='none')common.push('rotate-not-none');
+      if(css.scale!=='none')common.push('scale-not-none');
+      const a=[...common],f=[...common];
+      if(!tip.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}))f.push('not-visible');
+      if(parent!==document.body&&!(portal===document.body&&getComputedStyle(parent).display==='contents'))a.push('unverified-portal-structure');
+      if(tip.offsetParent!==document.body)a.push('offset-parent-not-body');
+      if(css.position!=='absolute')a.push('position-not-absolute');
+      if(css.pointerEvents!=='none')a.push('pointer-events-not-none');
+      if(relation.ids.length!==1||!parent?.hasAttribute('data-radix-popper-content-wrapper')||parent.children.length!==1||parent.firstElementChild!==tip||
+        !root||root.parentElement!==document.body||root.tagName!=='DIV'||portal.tagName!=='DIV'||parent.querySelectorAll('[role="tooltip"]').length!==1||
+        tip.querySelector('button,a[href],input,select,textarea,[tabindex],[contenteditable],[role="menu"],[role="dialog"]'))f.push('unverified-fixed-portal-structure');
+      if(!f.includes('unverified-fixed-portal-structure')) {
+        const w=getComputedStyle(parent),p=getComputedStyle(portal),r=getComputedStyle(root);
+        if(css.position!=='static'||css.pointerEvents!=='auto'||tip.offsetParent!==parent||w.position!=='fixed'||parent.offsetParent!==portal||
+          p.position!=='fixed'||p.contain!=='layout'||p.pointerEvents!=='none'||portal.offsetParent!==document.body||r.position!=='static')f.push('unsupported-fixed-coordinate-system');
+        for(const el of [parent,portal,root,document.body,document.documentElement]) {
+          const c=getComputedStyle(el);
+          if(c.rotate!=='none'||c.scale!=='none'||c.perspective!=='none'||c.filter!=='none'||
+            (el!==document.body&&(c.overflowX!=='visible'||c.overflowY!=='visible'))||(el!==parent&&c.translate!=='none'))f.push('unsupported-fixed-ancestor-effects');
+          if(c.transform!=='none') {
+            const m=new DOMMatrixReadOnly(c.transform);
+            if(!m.is2D||m.a!==1||m.b!==0||m.c!==0||m.d!==1)f.push('unsupported-fixed-transform');
+          }
+        }
+      }
+      return {absolute:{target:tip,reasons:[...new Set(a)]},fixed:{target:parent,reasons:[...new Set(f)]}};
+    }
+    return {source,owners,tokens,resolve,structures,excluded};
+  }
+  // END GENERATED TOOLTIP POLICY
+  const tooltipPolicy=createTooltipPolicy();
   window.__ctcTooltipDiagnosticStop?.();
   const result = window.__ctcTooltipDiagnostic = {
-    diagnostic: 'tooltip-layout-v3', status: 'preparing',
+    diagnostic: 'tooltip-layout-v3', assessmentRevision: 2, status: 'preparing',
     preparationMs: 10000, observationMs: 6000, intervalMs: 250,
     samples: [], cleanup: false, truncated: false
   };
@@ -26,7 +106,7 @@
     result.iconMatchCount=matches.length;
   }
 
-  const ids = new WeakMap();
+  const ids = new WeakMap(), firstRects = new WeakMap();
   let serial = 0, prepareTimer, pollTimer, endTimer, stopped = false, previous = '';
   const ref = el => {
     if (!el) return null;
@@ -73,6 +153,9 @@
         'opacity','pointerEvents','contentVisibility','boxSizing'].map(k=>[k,css[k]])),
       effects:{filter:css.filter!=='none',backdropFilter:css.backdropFilter!=='none',
         clipPath:css.clipPath!=='none',willChangeTransform:css.willChange.includes('transform')},
+      inlineCorrectionEvidence:{translateImportant:el.style.getPropertyPriority('translate')==='important',
+        wrappingImportant:['max-width','min-width','box-sizing','white-space','overflow-wrap','height','max-height'].every(k=>el.style.getPropertyPriority(k)==='important'),
+        attribution:'unknown-product-private-state'},
       offsetParent:ref(el.offsetParent), hovered:el.matches(':hover'), focused:el===document.activeElement,
       visible:el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}),
       outOfViewport:r.x<0||r.y<0||r.x+r.width>innerWidth||r.y+r.height>innerHeight
@@ -170,40 +253,56 @@
         }))
       };
       snapshot.assessments=snapshot.buttons.map(({element:b,ancestors})=>{
-        const trigger=targets.find(el=>ref(el)===b.ref),wrapper=trigger?.parentElement;
-        const wrapperEligible=!!(trigger?.matches('button,[role="button"]')&&wrapper?.tagName==='SPAN'&&wrapper.children.length===1&&wrapper.firstElementChild===trigger&&
-          !wrapper.matches('[tabindex],[contenteditable],[hidden],[inert],[aria-hidden="true"]')&&
-          (!wrapper.hasAttribute('role')||['presentation','none'].includes(wrapper.getAttribute('role')))&&
-          wrapper.querySelectorAll('button,[role="button"],a[href],input,select,textarea,[tabindex],[contenteditable]').length===1);
-        const effectiveRefs=[...b.attributes.describedBy,...(wrapperEligible?related(wrapper,'aria-describedby').map(ref):[])];
-        const linked=snapshot.candidates.filter(c=>effectiveRefs.includes(c.element.ref)&&c.element.attributes.role==='tooltip');
-        const reasons=[];
-        const imageSource=b.tag==='span'&&b.attributes.role==='img';
-        if(b.tag!=='button'&&b.attributes.role!=='button'&&!imageSource)reasons.push('trigger-not-button');
-        if(imageSource){
-          if(trigger.parentElement?.closest('button,[role="button"],[aria-describedby]'))reasons.push('conflicting-description-ancestor');
-          if(!b.visible||trigger.closest('[hidden],[inert],[aria-hidden="true"]'))reasons.push('description-source-not-visible');
-          const ids=(trigger.getAttribute('aria-describedby')||'').trim().split(/\s+/).filter(Boolean);
-          if(ids.some(key=>document.querySelectorAll('[aria-describedby~="'+CSS.escape(key)+'"]').length!==1))reasons.push('competing-description-owner');
-        }
-        if(!effectiveRefs.length)reasons.push('button-has-no-describedby');
-        if(new Set(effectiveRefs).size!==effectiveRefs.length)reasons.push('duplicate-description-reference');
-        if(linked.length!==1)reasons.push('linked-tooltip-count-not-one');
-        const edge=band?.bar.rect.y+band?.bar.rect.height;
-        if(b.rect.y<edge-1||b.rect.y+b.rect.height>edge+96)reasons.push('outside-upper-control-range');
+        const trigger=targets.find(el=>ref(el)===b.ref);
+        const relation=tooltipPolicy.resolve(trigger,band?band.bar.rect.y+band.bar.rect.height:NaN);
+        const shapes=tooltipPolicy.structures(relation),wrapperEligible=relation.owners.length===2,wrapper=trigger.parentElement;
+        const rawIds=relation.ids;
+        const ariaResolution=rawIds.slice(0,8).map(key=>{
+          const matches=[...document.querySelectorAll('#'+CSS.escape(key))];
+          return {matchCount:matches.length,targetRefs:matches.slice(0,8).map(ref),
+            descriptionOwnerCount:document.querySelectorAll('[aria-describedby~="'+CSS.escape(key)+'"]').length};
+        });
+        const fixedHint=!!relation.tip?.parentElement?.hasAttribute('data-radix-popper-content-wrapper');
+        const selected=!shapes.fixed.reasons.length?'fixed':!shapes.absolute.reasons.length?'absolute':fixedHint?'fixed':'absolute';
+        const reasons=[...relation.reasons,...shapes[selected].reasons];
+        if(!snapshot.layoutActive)reasons.push('layout-inactive');
+        const uncertainties=['product-active-flags-and-style-ownership-not-observable','product-session-and-conflict-budget-not-observable'];
+        const geometry=[];
+        const linked=snapshot.candidates.filter(c=>relation.tip&&c.element.ref===ref(relation.tip));
         for(const c of linked){
-          const e=c.element,n=c.ancestors.nodes;
-          if(n[0]?.ref!==snapshot.body.ref&&!(n[0]?.style.display==='contents'&&n[1]?.ref===snapshot.body.ref))reasons.push('unverified-portal-structure');
-          if(e.offsetParent!==snapshot.body.ref)reasons.push('offset-parent-not-body');
-          if(e.style.position!=='absolute')reasons.push('position-not-absolute');
-          if(e.style.pointerEvents!=='none')reasons.push('pointer-events-not-none');
-          if(e.rect.width<=1||e.rect.height<=1)reasons.push('possibly-accessibility-only-tooltip');
-          if(!e.visible)reasons.push('not-visible');
+          const e=c.element,node=relation.tip;
+          if(e.style.translate!=='none'||getComputedStyle(node.parentElement).translate!=='none')uncertainties.push('translate-present-native-or-existing-correction');
+          const border=host?Number.parseFloat(getComputedStyle(host).getPropertyValue('--border')):NaN;
+          const edge=Number.isFinite(border)?Math.max(4,border):null;
+          if(edge===null)uncertainties.push('border-setting-unavailable');
+          const bottom=b.rect.y+b.rect.height;
+          const free=edge===null?null:innerHeight-edge-bottom-6;
+          const width=edge===null?null:innerWidth-2*edge;
+          const needsWrap=width!==null&&e.rect.width>width;
+          if(needsWrap)uncertainties.push('wrap-required-height-after-wrap-unknown-read-only');
+          if(free!==null&&e.rect.height>free&&!needsWrap)reasons.push('insufficient-space-below');
+          if(!e.rect.width||!e.rect.height)reasons.push('zero-tooltip-size');
+          if(!firstRects.has(node))firstRects.set(node,e.rect);
+          const first=firstRects.get(node);
+          geometry.push({tooltipRef:e.ref,edge,gap:6,requiredHeight:e.rect.height,
+            availableBelow:free,availableWidth:width,needsWrap,
+            fitsBelowAtObservedSize:free===null?null:e.rect.height<=free,
+            tooltipBelowTrigger:e.rect.y>=bottom,firstObservedRect:first,
+            deltaFromFirst:Object.fromEntries(['x','y','width','height'].map(k=>[k,round(e.rect[k]-first[k])])),
+            correctionEvidence:e.inlineCorrectionEvidence});
         }
-        return {triggerRef:b.ref,wrapperDescriptionEligible:wrapperEligible,wrapperRef:wrapperEligible?ref(wrapper):null,linkedTooltipCount:linked.length,ancestorDescribedByCount:ancestors.nodes.filter(n=>n.attributes.describedBy.length).length,reasons};
+        return {triggerRef:b.ref,ariaResolution,descriptionCount:rawIds.length,geometry,uncertainties,
+          policyRevision:1,structureEvaluations:Object.fromEntries(Object.entries(shapes).map(([kind,value])=>[kind,{eligible:!value.reasons.length,reasons:value.reasons}])),
+          evaluatedStructure:selected,referenceOwnerRefs:relation.owners.map(ref),
+          productDecision:'not-observed',evidenceKind:'read-only-policy-evaluation',
+          assessment:reasons.length?'observed-rejection-conditions':'no-observed-rejection-not-proof-of-application',
+          wrapperDescriptionEligible:wrapperEligible,wrapperRef:wrapperEligible?ref(wrapper):null,linkedTooltipCount:linked.length,ancestorDescribedByCount:ancestors.nodes.filter(n=>n.attributes.describedBy.length).length,reasons};
       });
       const key=JSON.stringify(snapshot);
-      if(key!==previous&&result.samples.length<25)result.samples.push({ms:Math.round(performance.now()-start),...snapshot});
+      if(key!==previous) {
+        if(result.samples.length<25)result.samples.push({ms:Math.round(performance.now()-start),...snapshot});
+        else result.truncated=true;
+      }
       previous=key;
     } catch {
       // Do not include exception text, which can contain page-provided values.
@@ -216,10 +315,16 @@
     window.removeEventListener('pagehide',onPageHide);
     result.status=reason;result.elapsedMs=Math.round(performance.now()-start);
     result.cleanup=true;
+    if(window.__ctcTooltipDiagnosticCapture===capture)delete window.__ctcTooltipDiagnosticCapture;
     if(window.__ctcTooltipDiagnosticStop===stop)delete window.__ctcTooltipDiagnosticStop;
     if(reason==='complete')console.log('Colors for ChatGPT tooltip diagnostic',JSON.stringify(result));
   }
   function onPageHide(){stop('pagehide');}
+  function capture() {
+    if(result.status==='observing')sample();
+    return {status:result.status,samples:result.samples.length,cleanup:result.cleanup};
+  }
+  window.__ctcTooltipDiagnosticCapture=capture;
   window.__ctcTooltipDiagnosticStop=stop;
   window.addEventListener('pagehide',onPageHide);
   prepareTimer=setTimeout(()=>{
