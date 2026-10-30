@@ -1,5 +1,9 @@
 Uma cor de sua escolha para cada conversa. 🎨
 
+✨ Última atualização (1.0.1 / 28 de outubro de 2026)
+
+Corrigido um problema em que as dicas dos controles superiores se sobrepunham à faixa colorida em conversas normais e no Work. A dica da pasta do Work também foi ajustada para aparecer abaixo do respectivo controle.
+
 ■ Como começar
 ① Após instalar a extensão, recarregue as páginas do ChatGPT que estiverem abertas.
 ② Clique no ícone da extensão.

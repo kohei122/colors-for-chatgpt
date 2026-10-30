@@ -1,3 +1,24 @@
+全文コピー用原稿の運用（2026-10-30 / 1.0.1）
+・今後はリリースごとに7言語のdescription.txtを、最新更新情報を含む全文コピー用の完成原稿として更新する。ストアの該当言語へこのファイル全体を貼り付ける。別ファイルとの手動合成は不要。
+・キャッチコピー直後、使い方の前に「最新アップデート（版番号 / 更新日）」と利用者向けの簡潔な説明を置く。内部設計・診断・テストは本文に入れない。
+・更新日は準備・内容更新の根拠に合わせる。今回の2026-10-28は1.0.1準備完了日であり、ストア公開日ではない。翻訳日やcommit日に合わせて勝手に変えない。
+・既存の使い方・機能・制限・プライバシー・レビュー依頼を保持し、変更が必要な箇所だけ更新する。日本語・英語を基準にja→ko/zh_CN/zh_TW、en→es/pt_BRで意味・構成を揃える。
+・Chromeウェブストア／Edgeアドオンストア共通原稿を維持し、片方限定の案内を混ぜない。
+・release-notes-1.0.1.txtは補助記録として保持する。description.txtと意味を一致させるが、利用者が別途合成する必要はない。
+・既存の更新履歴がある場合は保持し、新版を先頭へ追加する。Colorsの既存description.txtには履歴欄がないため、今回は最新更新だけを追加し、過去版の履歴を創作・追加しない。過去原稿はGit履歴で保持する。
+・UTF-8（BOMなし）、7言語の意味と構成、追加ブロック以外の既存本文一致を検証する。
+・1.0.1はリリース準備済み・両ストア未公開。Gitへのcommit/push、ストア入力、審査提出、公開を区別し、確認した事実だけを管理文書に記録する。管理用の未公開注記や作業メモはコピー用本文へ混ぜない。
+
+参照したEnter Key Controlの運用（読み取りのみ）
+隣接marusin-extension-catalog内の以下を確認した。
+・store-listings/README.md：全文コピー、UTF-8/BOMなし、過去原稿保持、最新更新と履歴先頭追加、公開状態の分離。
+・docs/enter-key-control-release-workflow.md「ストア説明文管理」：版・言語管理、翻訳ルート、最新更新の日付、既存履歴の保持。
+・store-listings/chatgpt-enter-key-control/README.md、candidates/1.3.7/ja.txt：使い方より前に最新更新、後半に新しい順のリリースノート。candidateを公開済みと扱わない。
+・store-listings/gemini-enter-key-control/candidates/1.6.6/ja.txt：使い方より前に最新更新、後半に1.6.6/1.6.5/1.6.4の履歴。
+・store-descriptions/ja/claude-enter-key-control.md：旧Markdown形式。末尾付近に履歴があり、冒頭の最新更新欄はない。版別candidate管理へ移行済みとは判断しない。
+・隣接chatgpt/claude/gemini/perplexity-enter-key-control各README.mdも確認。製品ソース側に掲載専用原稿は見つからず、Perplexityの掲載原稿・同等運用も確認できなかった。製品READMEのChangelogをストア掲載履歴として流用しない。
+ChatGPT/Geminiの全文コピー・最新更新・履歴保持のルールを採用する。版別ディレクトリ構造やGeminiのChrome限定レビュー文はColorsへ移植しない。Colorsは既存store-listing/<locale>/description.txtをコピー元とし、今回の指示に従いChrome/Edge共用を維持する。Enter Key Control・LP側は一切変更しない。
+
 掲載文の共通運用ルール（2026-10-24）
 ・7言語の掲載文は、ChromeウェブストアとMicrosoft Edgeアドオンストアで共用できる内容を基本とする。
 ・レビュー依頼などに特定ストア名を入れない。

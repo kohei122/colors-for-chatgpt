@@ -1,3 +1,12 @@
+## 1.0.1 掲載原稿の全文コピー運用（2026-10-30）
+
+- 開始HEAD e1e09908fccc74fe168f22437570f7f78f089245、main、既存差分なし。7言語のdescription.txtへ、キャッチコピー直後・使い方の前に最新更新（1.0.1 / 2026-10-28）を挿入。更新日は準備完了日でありストア公開日ではない。1.0.1は準備済み・両ストア未公開として管理する。
+- 内容は上部tooltipと帯の重なり、Workフォルダーの下側表示の修正のみ。日本語は「ツールチップ」を「吹き出し」に言い換え、他6言語は既存release-notes-1.0.1.txtの本文と完全一致。意味・版番号・日付・配置を7言語で読み合わせた。ネイティブ話者レビューは未実施。
+- 全7言語でUTF-8 strict decode・BOMなし、追加ブロックを除いた既存本文のbytes一致、既存改行・末尾改行の保持、release-notesとの一致（日本語は上記同義語置換のみ）、Chrome/Edge限定表現の追加なし：PASS。初回の独立バックアップ照合は一時フォルダーへのアクセス権で停止したが、同じ検証を承認された実行権限で再実行し全件PASS。編集時のbytes一致検証もPASS。
+- 参照元と採用ルールはstore-listing/REVIEW.txtへ記録。ChatGPT/Geminiの全文コピー・最新更新欄・履歴保持を採用。Claudeは旧形式、Perplexityの掲載専用原稿は未確認。Colorsに存在しない過去履歴は追加しない。既存release-notesは補助記録として保持し、手動合成は不要とした。
+- 変更はdescription.txt 7ファイル、store-listing/REVIEW.txt、VALIDATION.mdのみ。製品コード・manifest/packageの1.0.1・ZIP・release-notes・Enter Key Control各製品・LP/News/Wixは変更なし。1.0.1 ZIP SHA-256 e1fced567f14705c67c50878207c9a33ac500f18396eb1a0b68dd896dea43a38、1.0.0 ZIP SHA-256 02639e4fcfc9a79dc293eaf628d814aad204bcc12171937f7ad27d4ff625fae9 を再確認。
+- git diff --checkを実施。文言と運用文書だけのため製品回帰テスト・ZIP再生成は行わない。GitHub通常pushとストア反映は別。ストア入力・保存・審査提出・公開操作なし。
+
 ## 1.0.1 リリース準備（2026-10-28）
 
 - 製品main、開始HEAD `1ac3d328785930b68606c790be688695790ba367`。既存未commitのtooltip製品修正・診断・fixture・テスト・設計記録を保持してリリース対象に含めた。manifest/package/lock・現行診断・版表示テストを1.0.1へ整合。過去記録は当時の状態として保持。

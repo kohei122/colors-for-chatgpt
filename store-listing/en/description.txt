@@ -1,5 +1,9 @@
 A color of your choice for each chat. 🎨
 
+✨ Latest update (1.0.1 / October 28, 2026)
+
+Fixed an issue where tooltips for top controls in regular chats and Work overlapped the colored banner. Improved positioning so the Work folder tooltip also appears below its control.
+
 ■ Getting started
 ① After installation, reload any open ChatGPT pages.
 ② Click the extension icon.
